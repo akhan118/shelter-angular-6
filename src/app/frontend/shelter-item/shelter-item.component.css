@@ -1,0 +1,8 @@
+.shelter-item {
+  width: 60%;
+  max-width: 600px;
+  background-color: #e3e3e3;
+  margin: 20px auto;
+  padding: 15px 30px;
+  line-height: 0.5;
+}

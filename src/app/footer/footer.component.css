@@ -1,0 +1,10 @@
+:host {
+  height: 40px;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  background-color: red;
+}
+  

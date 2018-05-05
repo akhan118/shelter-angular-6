@@ -1,0 +1,37 @@
+:host {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button-edit {
+  width: 55px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-center;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.form-label {
+  align-self: flex-start;
+}
+
+.input--disabled {
+  border-color: transparent;
+}

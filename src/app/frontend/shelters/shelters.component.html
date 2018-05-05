@@ -1,0 +1,9 @@
+<section class="shelters-content">
+  <label class="filter-field">
+    <label class="filter-label">Filter Shelters by Name</label>
+    <input type="search" class="filter-input" placeholder="Filter Shelters" [(ngModel)]="filterValue" />
+  </label>
+  <ul class="shelters-list">
+    <sa-shelter-item *ngFor="let shelter of shelters | sheltersFilter:filterValue" [ShelterData]="shelter"></sa-shelter-item>
+  </ul>
+</section>

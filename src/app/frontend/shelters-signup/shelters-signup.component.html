@@ -1,0 +1,40 @@
+<body>
+  <nav class="col-1">Nav</nav>
+  <div class="col-2">
+  	<header>Header</header>
+    <main class="content">
+    <article>
+
+      <mat-card>
+        <div class="example-container">
+          <mat-form-field>
+            <input matInput  [(ngModel)]="shelterName" placeholder="Shelter Name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput  [(ngModel)]="shelterAddressNumber" type='number' placeholder="Address">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput  [(ngModel)]="shelterCity" placeholder="City">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput  [(ngModel)]="shelterState" placeholder="State">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput  [(ngModel)]="shelterTel" type='number' placeholder="Tel">
+          </mat-form-field>
+
+          <button mat-raised-button	(click)="save();">Submit to API and SAVE!</button>
+
+        </div>
+</mat-card>
+
+
+
+    </article>
+    <aside>Aside</aside>
+    </main>
+  	<footer>Footer</footer>
+  </div>
+</body>

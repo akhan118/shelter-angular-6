@@ -1,0 +1,31 @@
+<h3 class="title">Profile</h3>
+<button class="button-edit" (click)="editing = !editing">
+  <span *ngIf="!editing">Edit</span>
+  <span *ngIf="editing">Cancel</span>
+</button>
+
+<form class="profile" [formGroup]="profileForm" (ngSubmit)="submitForm(profileForm)">
+  <label class="form-group">
+    <label class="form-label">Name</label>
+    <input class="form-input" type="text" placeholder="Name" formControlName="name" [readonly]="!editing" [class.input--disabled]="!editing">
+  </label>
+  <label class="form-group">
+    <label class="form-label">EIN</label>
+    <input class="form-input" type="number" placeholder="EIN" formControlName="EIN" [readonly]="!editing" [class.input--disabled]="!editing">
+  </label>
+  <ng-container formGroupName="address">
+    <label class="form-group">
+      <label class="form-label">Street</label>
+      <input class="form-input" type="text" placeholder="Street" formControlName="street" [readonly]="!editing" [class.input--disabled]="!editing">
+    </label>
+    <label class="form-group">
+      <label class="form-label">Zip</label>
+      <input class="form-input" type="number" placeholder="Zip" formControlName="zip" [readonly]="!editing" [class.input--disabled]="!editing">
+    </label>
+  </ng-container>
+  <label class="form-group">
+    <label class="form-label">Phone Number</label>
+    <input class="form-input" type="tel" placeholder="Phone Number" formControlName="phoneNumber" [readonly]="!editing" [class.input--disabled]="!editing">
+  </label>
+  <button type="submit" [disabled]="profileForm.invalid || isSubmitting" *ngIf="editing">Save Form</button>
+</form>

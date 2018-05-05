@@ -1,0 +1,19 @@
+<h3 class="title">Signup</h3>
+
+<form class="signup" [formGroup]="signupForm" (ngSubmit)="submitForm(signupForm)">
+  <label class="form-group">
+    <label class="form-label">Username</label>
+    <input class="form-input" type="text" placeholder="Username" formControlName="username" required>
+  </label>
+  <label class="form-group">
+    <label class="form-label">Email</label>
+    <input class="form-input" type="email" placeholder="Email" formControlName="email" required>
+  </label>
+  <label class="form-group">
+    <label class="form-label">Password</label>
+    <input class="form-input" type="password" placeholder="Password" formControlName="password" required>
+  </label>
+  <button type="submit" [disabled]="signupForm.invalid || isSubmitting">Signup</button>
+</form>
+
+<a class="login-link" [routerLink]="['/backend/login']">Login</a>
