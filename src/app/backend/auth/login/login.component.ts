@@ -41,18 +41,18 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/backend/dashboard']);
       },
       (error) => {
-        console.error('Error signing up:', error)
+        console.error('Error signing up:', error);
       });
   }
 
   private setLoginCredentials() {
     this.activatedRoute.queryParamMap
       .subscribe((values) => {
-        let creds = values['params'];
+        const creds = values['params'];
         if (creds['username'] && creds['password']) {
           this.loginForm.setValue({ username: creds['username'], password: creds['password'] });
         }
-      })
+      });
   }
 
 }

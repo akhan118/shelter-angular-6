@@ -22,3 +22,4 @@ const homeRoutes: Routes = [
   exports: [RouterModule],
 })
 export class DashboardRoutingModule { }
+

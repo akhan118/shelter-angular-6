@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private http: HttpClient, private userDetails: UserDetailsService) { }
 
   login(username: string, password: string) {
-    let loginUrl: string = `${this.baseUrl}/login`;
+    const loginUrl: string = `${this.baseUrl}/login`;
     let params = new HttpParams();
     params = params.append('username', username);
     params = params.append('password', password);
@@ -19,7 +19,7 @@ export class LoginService {
   }
 
   signup(username: string, email: string, password: string) {
-    let signupUrl: string = `${this.baseUrl}/signup`;
+    const signupUrl: string = `${this.baseUrl}/signup`;
     let params = new HttpParams();
     params = params.append('username', username);
     params = params.append('email', email);
@@ -32,6 +32,7 @@ export class LoginService {
     if (this.userDetails.accessToken) {
       loggedInStatus = true;
     }
+    console.log('logged IN', loggedInStatus);
     return loggedInStatus;
   }
 }

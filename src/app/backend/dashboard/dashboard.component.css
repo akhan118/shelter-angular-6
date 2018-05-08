@@ -1,0 +1,86 @@
+.dashboard {
+	height: 100%;
+	overflow: hidden;
+}
+
+.dashboard__menu {
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.nav__items {
+	padding: 0px;
+}
+
+.nav__item {
+	width: auto;
+	margin: 20px;
+	font-size: 1.2rem;
+}
+
+.link {
+
+}
+
+.link__icon {
+
+}
+
+.link__text {
+
+}
+
+.dashboard__content {
+	height: 100%;
+	overflow: hidden;
+}
+
+.dashboard__header {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+	color: #fff;
+	background-color: rgba(11, 57, 84, 1);
+	background-color: var(--bluejean-blue);
+}
+
+.icon-wrapper {
+	height: 100%;
+	width: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon-wrapper .menu-icon {
+	font-size: 3.6rem;
+}
+
+.header-text {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-right: 60px;
+}
+
+.dashboard__main {
+	height: 100%;
+	overflow-y: auto;
+	font-size: 1.4rem;
+	background-color: red;
+}
+
+/****************************************
+
+Material Theme Overrides
+
+****************************************/
+mat-drawer {
+	width: 250px;
+}

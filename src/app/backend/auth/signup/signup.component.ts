@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
       username: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required]
-    })
+    });
   }
 
   submitForm(form) {
@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
 
       },
       (error) => {
-        console.error('Error logging into app:', error)
+        console.error('Error logging into app:', error);
       });
   }
 

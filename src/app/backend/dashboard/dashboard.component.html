@@ -1,4 +1,32 @@
-<sa-navbar [navItems]="navLinks"></sa-navbar>
-<p>Welcome {{ username }}</p>
-<router-outlet></router-outlet>
-<sa-footer></sa-footer>
+<mat-drawer-container class="dashboard">
+	<p>Welcome {{ username }}</p>
+	<mat-drawer #drawer mode="side" opened="true" class="dashboard__menu">
+		<nav class="nav">
+			<ul class="nav__items">
+				<li class="nav__item">
+					<a href="#" class="nav__link">Availability</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="link">Organization</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="link">User Profile</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="link">Settings</a>
+				</li>
+			</ul>
+		</nav>
+	</mat-drawer>
+	<mat-drawer-content class="dashboard__content">
+		<header class="dashboard__header">
+			<div class="icon-wrapper" (click)="drawer.toggle()">
+				<i class="menu-icon material-icons">&#xE5D2;</i>
+			</div>
+			<div class="header-text">This is the header</div>
+		</header>
+		<main class="dashboard__main">
+			<router-outlet></router-outlet>
+		</main>
+	</mat-drawer-content>
+</mat-drawer-container>
