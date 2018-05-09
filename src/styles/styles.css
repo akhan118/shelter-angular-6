@@ -4,7 +4,7 @@
 :root {
   font-size: 62.5%;
   --bluejean-blue: rgba(11, 57, 84, 1);
-  --cloudy-blue: rgba(94, 177, 191, 1);
+  --cloudy-blue: rgba(37, 206, 209, 1);
   --cranberry: rgba(120, 1, 22, 1);
 }
 
@@ -55,7 +55,7 @@ Colors
 
 ******************************/
 .color-cloudy {
-  color: rgba(94, 177, 191, 1);
+  color: rgba(37, 206, 209, 1);
   color: var(--cloudy-blue);
 }
 
@@ -70,7 +70,7 @@ Colors
 }
 
 .bg-cloudy {
-  background-color: rgba(94, 177, 191, 1);
+  background-color: rgba(37, 206, 209, 1);
   background-color: var(--cloudy-blue);
 }
 
