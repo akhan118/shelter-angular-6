@@ -1,1 +1,21 @@
-<p>Availability Works</p>
+<mat-card class="availability__card">
+  <p class="card__number">{{total}}</p>
+  <article class="card__text">
+    <p>Bed{{total > 1 ? "s" : ""}}</p>
+    <p>Total</p>
+  </article>
+</mat-card>
+<mat-card class="availability__card">
+  <p class="card__number">{{occupied}}</p>
+  <article class="card__text">
+    <p>Bed{{occupied > 1 ? "s" : ""}}</p>
+    <p>Occupied</p>
+  </article>
+</mat-card>
+<mat-card class="availability__card">
+  <p class="card__number">{{available}}</p>
+  <article class="card__text">
+    <p>Bed{{available > 1 ? "s" : ""}}</p>
+    <p>Available</p>
+  </article>
+</mat-card>

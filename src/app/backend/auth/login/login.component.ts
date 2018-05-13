@@ -11,6 +11,7 @@ import { UserDetailsService } from '@appCore/services/user-details.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isSubmitting: boolean = false;
   loginForm: FormGroup;
 
   constructor(
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(form) {
+    this.isSubmitting = true;
     this.loginService.login(form.value.username, form.value.password)
       .subscribe((loginResponse) => {
         this.userDetails.accessToken = loginResponse['access_token'];
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/backend/dashboard']);
       },
       (error) => {
+        this.isSubmitting = false;
         console.error('Error signing up:', error);
       });
   }

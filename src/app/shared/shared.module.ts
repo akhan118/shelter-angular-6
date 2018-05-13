@@ -8,9 +8,15 @@ import { MaterialModule } from './material.module';
 import { NavbarComponent } from 'app/navbar/navbar.component';
 import { FooterComponent } from 'app/footer/footer.component';
 import { SheltersFilterPipe } from './shelters-filter.pipe';
+import { LoadingIconComponent } from './loading-icon/loading-icon.component';
 
 @NgModule({
-  declarations: [SheltersFilterPipe, NavbarComponent, FooterComponent],
+  declarations: [
+    SheltersFilterPipe, 
+    NavbarComponent, 
+    FooterComponent, 
+    LoadingIconComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -28,7 +34,8 @@ import { SheltersFilterPipe } from './shelters-filter.pipe';
     MaterialModule,
     SheltersFilterPipe,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingIconComponent
   ]
 })
 export class SharedModule {}

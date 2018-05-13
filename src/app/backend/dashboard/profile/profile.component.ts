@@ -22,7 +22,8 @@ export class Shelter extends Object {
 export class ProfileComponent implements OnInit {
   currentShelter: Shelter;
   editing: boolean = false;
-  profileForm: FormGroup;
+  isSubmitting: boolean = false;
+  userInfoForm: FormGroup;
 
   constructor(
     private shelterService: ShelterService,
@@ -30,47 +31,35 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getShelter();
-    this.createLoginForm();
+    // When component is initialized create UserInfo form
+    this.createUserInfoForm();
+  }
+
+  disableForm() {
+    this.editing = !this.editing;
+    this.editing === false ? this.userInfoForm.disable() : this.userInfoForm.enable();
+    console.log('editing', this.editing);
   }
 
   submitForm(form: FormGroup) {
-
+    // Simulate submitting form
+    console.info('submitted user info form', form);
+    setTimeout(() => {
+      this.isSubmitting = true;
+    }, 4000);
   }
 
-  private getShelter() {
-    this.shelterService.getShelter()
-      .subscribe((shelterJSON: Shelter) => {
-        this.currentShelter = shelterJSON;
-        this.setFormValues(this.currentShelter);
-      },
-        error => console.log('Error getting shelter service:', error));
+  private createUserInfoForm() {
+    // Create userInfo FormGroup using FormBuilder module
+    this.userInfoForm = this.fb.group({
+      name: ['Malcolm Childs', Validators.required],
+      email: ['mchilds@helpinghanddetroit.com', [Validators.required, Validators.email]],
+      password: ['password', Validators.required],
+      organization: ['Helping Hand Detroit', Validators.required]
+    });
+
+    // Disable form initially until user clicks 'edit' button
+    this.userInfoForm.disable();
   }
-
-  private createLoginForm() {
-    this.profileForm = this.fb.group({
-      name: ['', Validators.required],
-      EIN: ['', Validators.required],
-      address: this.fb.group({
-        street: ['', Validators.required],
-        zip: ['', Validators.required]
-      }),
-      phoneNumber: ['', Validators.required]
-    })
-  }
-
-  private setFormValues(shelter: Shelter) {
-    this.profileForm.setValue({
-      name: shelter.name,
-      EIN: shelter.EIN,
-      address: {
-        street: shelter.address.street,
-        zip: shelter.address.zip
-      },
-      phoneNumber: shelter.phoneNumber
-    })
-  }
-
-
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { UserDetailsService } from '@appCore/services/user-details.service';
 
 @Component({
@@ -7,17 +9,16 @@ import { UserDetailsService } from '@appCore/services/user-details.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  navLinks: object[] = [
-    { name: 'availability', url: '/backend/dashboard/availability' },
-    { name: 'profile', url: '/backend/dashboard/profile' },
-    { name: 'settings', url: '/backend/dashboard/settings' }
-  ];
   username: string = null;
 
-  constructor(private userDetails: UserDetailsService) { }
+  constructor(private router: Router, private userDetails: UserDetailsService) { }
 
   ngOnInit() {
     this.username = this.userDetails.username;
+  }
+
+  logout() {
+    this.router.navigate(['/backend/login']);
   }
 
 }

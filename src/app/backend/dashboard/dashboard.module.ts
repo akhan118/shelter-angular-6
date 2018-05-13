@@ -7,12 +7,14 @@ import { AvailabilityComponent } from '../dashboard/availability/availability.co
 import { SettingsComponent } from '../dashboard/settings/settings.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HomeModule } from './home/home.module';
 
 
 @NgModule({
   imports: [
     SharedModule,
-    DashboardRoutingModule
+    HomeModule,
+    DashboardRoutingModule,
   ],
   declarations: [
     DashboardComponent,

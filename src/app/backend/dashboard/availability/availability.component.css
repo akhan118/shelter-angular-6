@@ -1,0 +1,45 @@
+:host {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+  transition: flex-direction  0.4s linear;
+}
+
+@media (min-width: 450px) {
+  :host {
+    flex-direction: row;
+  }
+}
+
+.availability {
+
+}
+
+.availability__card {
+  flex: 1;
+  margin: 5px 0px;
+}
+
+.availability__card p {
+  margin: 0px;
+}
+
+@media (min-width: 450px) {
+  .availability__card {
+    margin: 0px 5px;
+  }
+}
+
+.card__number {
+  font-size: 3.5rem;
+}
+
+.card__text {
+
+}
+
+.card__text p {
+  font-size: 1.8rem;
+  margin: 0px;
+}

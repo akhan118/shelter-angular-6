@@ -14,6 +14,7 @@
 
 html,
 body {
+  min-width: 320px;
   width: 100%;
   height: 100vh;
   margin: 0px;
@@ -156,14 +157,34 @@ Material Overrides
 Buttons
 
 ******************************/
-button.mat-button {
+.button.mat-button {
+  height: 40px;
+  overflow: hidden;
   line-height: 1;
-  color: #ffffff;
 }
 
-button.mat-button:disabled {
-  color: #ffffff;
+.button.mat-button:disabled {
   opacity: 0.8;
+}
+
+.button .button__content {
+  height: 100%;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in;
+}
+
+.button .button__content.animate-up {
+  transform: translateY(-100%);
+}
+
+.button__text,
+.button__loading {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
 }
 
 /******************************

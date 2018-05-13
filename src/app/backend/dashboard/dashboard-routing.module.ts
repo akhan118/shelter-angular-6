@@ -9,6 +9,7 @@ import { SettingsComponent } from '@appBackend/dashboard/settings/settings.compo
 const homeRoutes: Routes = [
   {
     path: '', component: DashboardComponent, children: [
+      { path: 'home', loadChildren: './home/home.module#HomeModule'},
       { path: 'availability', component: AvailabilityComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'settings', component: SettingsComponent },

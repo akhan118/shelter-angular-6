@@ -1,42 +1,51 @@
 <mat-drawer-container class="dashboard">
-	<p>Welcome {{ username }}</p>
+
+	<!-- Side Nav -->
 	<mat-drawer #drawer mode="side" opened="false" class="dashboard__menu">
 		<nav class="nav">
 			<ul class="nav__items">
 				<li class="nav__item">
-					<i class="material-icons">
-						hotel
-					</i>
-					<a href="#" class="nav__link">Availability</a>
+					<a class="nav__link" [routerLink]="['home']">
+						<i class="nav__icon material-icons">home</i>
+						<p class="nav__text">Home</p>
+					</a>
 				</li>
 				<li class="nav__item">
-					<i class="material-icons">
-					business
-					</i>
-					<a href="#" class="nav__link">Organization</a>
+					<a class="nav__link" [routerLink]="['availability']">
+						<i class="nav__icon material-icons">hotel</i>
+						<p class="nav__text">Availability</p>
+					</a>
 				</li>
 				<li class="nav__item">
-					<i class="material-icons">
-					perm_identity
-					</i>
-					<a href="#" class="nav__link">User Profile</a>
+					<a href="#" class="nav__link">
+						<i class="nav__icon material-icons">business</i>
+						<p class="nav__text">Organization</p>
+					</a>
+				</li> 
+				<li class="nav__item">
+					<a class="nav__link" [routerLink]="['profile']">
+						<i class="nav__icon material-icons">perm_identity</i>
+						<p class="nav__text">User Profile</p>
+					</a>
 				</li>
 				<li class="nav__item">
-					<i class="material-icons">
-					settings
-					</i>
-					<a href="#" class="nav__link">Settings</a>
+					<a class="nav__link" [routerLink]="['settings']">
+						<i class="nav__icon material-icons">settings</i>
+						<p class="nav__text">Settings</p>
+					</a>
 				</li>
 			</ul>
 		</nav>
-		<button mat-button class="logout-button">
-			<i class="logout-button__icon material-icons">
+		<button mat-button class="button--logout" (click)="logout()">
+			<i class="button--logout__icon material-icons">
 			power_settings_new
 			</i>
-			<p class="logout-button__text">Logout</p>
+			<p class="button--logout__text">Logout</p>
 		</button>
 	</mat-drawer>
 	<mat-drawer-content class="dashboard__content">
+
+		<!-- Header --> 
 		<header class="dashboard__header">
 			<div class="icon-wrapper" (click)="drawer.toggle()">
 				<i class="menu-icon material-icons">&#xE5D2;</i>
@@ -50,6 +59,8 @@
 				</div>
 			</article>
 		</header>
+
+		<!-- Main Content -->
 		<main class="dashboard__main">
 			<router-outlet></router-outlet>
 		</main>
