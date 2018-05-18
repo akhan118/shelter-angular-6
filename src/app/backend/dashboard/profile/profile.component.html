@@ -15,19 +15,23 @@
     </div>
     <form class="form form--profile" [formGroup]="userInfoForm" (ngSubmit)="submitForm(userInfoForm)">
       <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="Name" formControlName="name" [class.input--disabled]="!editing">
+        <input matInput class="form__input" type="text" placeholder="Name" formControlName="name" [class.input--disabled]="!editing"
+          required>
       </mat-form-field>
       <mat-form-field class="form__field">
-        <input matInput class="form__input" type="email" placeholder="Email" formControlName="email" [class.input--disabled]="!editing">
+        <input matInput class="form__input" type="email" placeholder="Email" formControlName="email" [class.input--disabled]="!editing"
+          required>
       </mat-form-field>
       <mat-form-field class="form__field">
-        <input matInput class="form__input" type="password" placeholder="Password" formControlName="password" [class.input--disabled]="!editing">
+        <input matInput class="form__input" type="password" placeholder="Password" formControlName="password" [class.input--disabled]="!editing"
+          required>
       </mat-form-field>
       <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="Organization" formControlName="organization" [class.input--disabled]="!editing">
+        <input matInput class="form__input" type="text" placeholder="Organization" formControlName="organization" [class.input--disabled]="!editing"
+          required>
       </mat-form-field>
       <button mat-button class="button bg-cranberry" type="submit" [disabled]="userInfoForm.invalid || isSubmitting" *ngIf="editing">
-        <span class="button__text">Save Form</span>
+        <span class="button__text">Update Profile</span>
       </button>
     </form>
   </mat-card>

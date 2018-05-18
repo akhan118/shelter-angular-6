@@ -1,6 +1,6 @@
 <mat-card class="fill-space">
   <mat-card-title class="form-title">
-    <p class="color-bluejean-blue form-title__text">Signup</p>
+    <p class="color-bluejean-blue form-title__text">Sign Up</p>
   </mat-card-title>
   <mat-card-content>
     <form class="form" [formGroup]="signupForm" (ngSubmit)="submitForm(signupForm)">
@@ -13,8 +13,13 @@
       <mat-form-field class="form__field">
         <input matInput class="form__input" type="password" placeholder="Password" formControlName="password" required>
       </mat-form-field>
-      <button mat-button class="bg-cranberry" type="submit" [disabled]="signupForm.invalid || isSubmitting">
-        <p>Signup</p>
+      <button mat-button class="button bg-cranberry" type="submit" [disabled]="signupForm.invalid || isSubmitting">
+        <div class="button__content" [class.animate-up]="isSubmitting">
+          <span class="button__text">Sign Up</span>
+          <span class="button__loading">
+            <sa-loading-icon></sa-loading-icon>
+          </span>
+        </div>
       </button>
     </form>
     <div class="divider"></div>

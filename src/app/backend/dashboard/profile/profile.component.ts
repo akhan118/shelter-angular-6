@@ -38,7 +38,6 @@ export class ProfileComponent implements OnInit {
   disableForm() {
     this.editing = !this.editing;
     this.editing === false ? this.userInfoForm.disable() : this.userInfoForm.enable();
-    console.log('editing', this.editing);
   }
 
   submitForm(form: FormGroup) {

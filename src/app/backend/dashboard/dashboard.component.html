@@ -1,68 +1,16 @@
 <mat-drawer-container class="dashboard">
 
-	<!-- Side Nav -->
-	<mat-drawer #drawer mode="side" opened="false" class="dashboard__menu">
-		<nav class="nav">
-			<ul class="nav__items">
-				<li class="nav__item">
-					<a class="nav__link" [routerLink]="['home']">
-						<i class="nav__icon material-icons">home</i>
-						<p class="nav__text">Home</p>
-					</a>
-				</li>
-				<li class="nav__item">
-					<a class="nav__link" [routerLink]="['availability']">
-						<i class="nav__icon material-icons">hotel</i>
-						<p class="nav__text">Availability</p>
-					</a>
-				</li>
-				<li class="nav__item">
-					<a href="#" class="nav__link">
-						<i class="nav__icon material-icons">business</i>
-						<p class="nav__text">Organization</p>
-					</a>
-				</li> 
-				<li class="nav__item">
-					<a class="nav__link" [routerLink]="['profile']">
-						<i class="nav__icon material-icons">perm_identity</i>
-						<p class="nav__text">User Profile</p>
-					</a>
-				</li>
-				<li class="nav__item">
-					<a class="nav__link" [routerLink]="['settings']">
-						<i class="nav__icon material-icons">settings</i>
-						<p class="nav__text">Settings</p>
-					</a>
-				</li>
-			</ul>
-		</nav>
-		<button mat-button class="button--logout" (click)="logout()">
-			<i class="button--logout__icon material-icons">
-			power_settings_new
-			</i>
-			<p class="button--logout__text">Logout</p>
-		</button>
-	</mat-drawer>
-	<mat-drawer-content class="dashboard__content">
+  <!-- Side Nav -->
+  <mat-drawer #drawer mode="side" opened="false" class="dashboard__menu">
+    <sa-side-nav></sa-side-nav>
+  </mat-drawer>
 
-		<!-- Header --> 
-		<header class="dashboard__header">
-			<div class="icon-wrapper" (click)="drawer.toggle()">
-				<i class="menu-icon material-icons">&#xE5D2;</i>
-			</div>
-			<article class="user-info">
-				<p class="user-info__name">{{username}}</p>
-				<div class="user-info__avatar">
-					<i class="avatar-icon material-icons">
-						account_circle
-					</i>
-				</div>
-			</article>
-		</header>
+  <mat-drawer-content class="dashboard__content">
+    <sa-admin-header></sa-admin-header>
 
-		<!-- Main Content -->
-		<main class="dashboard__main">
-			<router-outlet></router-outlet>
-		</main>
-	</mat-drawer-content>
+    <!-- Main Content -->
+    <main class="dashboard__main">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
 </mat-drawer-container>

@@ -1,6 +1,6 @@
 <mat-card class="fill-space">
   <mat-card-title class="form-title">
-    <p class="color-bluejean-blue form-title__text">Login</p>
+    <p class="color-bluejean form-title__text">Log In</p>
   </mat-card-title>
   <mat-card-content>
     <form class="form" [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)">
@@ -12,7 +12,7 @@
       </mat-form-field>
       <button mat-button class="button bg-cranberry" type="submit" [disabled]="loginForm.invalid || isSubmitting">
         <div class="button__content" [class.animate-up]="isSubmitting">
-          <span class="button__text">Login</span>
+          <span class="button__text">Log In</span>
           <span class="button__loading">
             <sa-loading-icon></sa-loading-icon>
           </span>
