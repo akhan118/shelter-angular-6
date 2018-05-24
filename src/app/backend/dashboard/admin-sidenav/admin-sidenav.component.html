@@ -1,22 +1,22 @@
 <nav class="nav">
   <mat-nav-list class="nav__items">
-    <mat-list-item class="nav__item" [routerLink]="['home']">
+    <mat-list-item class="nav__item" [routerLink]="['home']" (click)="closeSidenav()">
       <mat-icon mat-list-icon class="nav__icon">home</mat-icon>
       <p mat-line class="nav__text">Home</p>
     </mat-list-item>
-    <mat-list-item class="nav__item" [routerLink]="['availability']">
+    <mat-list-item class="nav__item" [routerLink]="['availability']" (click)="closeSidenav()">
       <mat-icon mat-list-icon class="nav__icon">hotel</mat-icon>
       <p mat-line class="nav__text">Availability</p>
     </mat-list-item>
-    <mat-list-item class="nav__item">
+    <mat-list-item class="nav__item" (click)="closeSidenav()">
       <mat-icon mat-list-icon class="nav__icon">business</mat-icon>
       <p mat-line class="nav__text">Organization</p>
     </mat-list-item>
-    <mat-list-item class="nav__item" [routerLink]="['profile']">
+    <mat-list-item class="nav__item" [routerLink]="['profile']" (click)="closeSidenav()">
       <mat-icon mat-list-icon class="nav__icon">perm_identity</mat-icon>
       <p mat-line class="nav__text">User Profile</p>
     </mat-list-item>
-    <mat-list-item class="nav__item" [routerLink]="['settings']">
+    <mat-list-item class="nav__item" [routerLink]="['settings']" (click)="closeSidenav()">
       <mat-icon mat-list-icon class="nav__icon">settings</mat-icon>
       <p mat-line class="nav__text">Settings</p>
     </mat-list-item>

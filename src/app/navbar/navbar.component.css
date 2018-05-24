@@ -33,3 +33,7 @@ header {
 .nav-link {
   color: #fff;
 }
+
+.button--admin {
+  height: 100%;
+}

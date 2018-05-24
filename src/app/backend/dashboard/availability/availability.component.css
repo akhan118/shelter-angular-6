@@ -1,19 +1,15 @@
 :host {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 30px auto;
-  transition: flex-direction  0.4s linear;
+  transition: flex-direction 0.4s linear;
 }
 
 @media (min-width: 450px) {
   :host {
     flex-direction: row;
   }
-}
-
-.availability {
-
 }
 
 .availability__card {
@@ -36,10 +32,38 @@
 }
 
 .card__text {
-
 }
 
 .card__text p {
   font-size: 1.8rem;
   margin: 0px;
+}
+
+.grid__container {
+  width: 100%;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.button--left {
+  right: 50px;
+}
+
+.button--right {
+}
+
+.dashboard-card-content {
+  text-align: center;
 }
