@@ -52,7 +52,7 @@
 	background-color: var(--cranberry);
 }
 
-.button--logout.mat-button > .mat-button-wrapper {
+.button--logout .mat-button-wrapper {
 	width: 100%;
 	display: flex;
 	flex-direction: row;

@@ -9,7 +9,7 @@
 }
 
 .dashboard__main {
-	height: 100%;
+	height: calc(100% - 60px);
 	overflow-y: auto;
 	font-size: 1.4rem;
 	background-color: rgba(193, 219, 227, 1);

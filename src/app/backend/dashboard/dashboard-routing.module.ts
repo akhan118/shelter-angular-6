@@ -15,7 +15,8 @@ const homeRoutes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'availability', component: AvailabilityComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'settings', component: SettingsComponent }
+      { path: 'settings', component: SettingsComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   }
 ];
@@ -24,4 +25,4 @@ const homeRoutes: Routes = [
   imports: [RouterModule.forChild(homeRoutes)],
   exports: [RouterModule]
 })
-export class DashboardRoutingModule {}
+export class DashboardRoutingModule { }

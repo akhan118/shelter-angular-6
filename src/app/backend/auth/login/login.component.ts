@@ -42,10 +42,10 @@ export class LoginComponent implements OnInit {
         this.userDetails.username = loginResponse['username'];
         this.router.navigate(['/backend/dashboard']);
       },
-      (error) => {
-        this.isSubmitting = false;
-        console.error('Error signing up:', error);
-      });
+        (error) => {
+          this.isSubmitting = false;
+          console.error('Error signing up:', error);
+        });
   }
 
   private setLoginCredentials() {
