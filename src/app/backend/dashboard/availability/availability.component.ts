@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 import { ShelterService } from '@appCore/services/shelter.service';
-import { AUTOCOMPLETE_OPTION_HEIGHT } from '@angular/material';
 
 @Component({
   selector: 'sa-availability',
@@ -31,7 +30,7 @@ export class AvailabilityComponent implements OnInit {
     this.availableInput.disable();
   }
 
-  activateEdit(inputField: FormControl) {
+  enableEdit(inputField: FormControl) {
     this.originalValue = inputField.value;
     inputField.enable();
   }
@@ -41,7 +40,17 @@ export class AvailabilityComponent implements OnInit {
     inputField.disable();
   }
 
-  updateInputValue(inputField: FormControl) {
-    console.log('UPDATE', inputField);
+  updateAvailableValue() {
+    let occupiedValue: number = 0;
+    occupiedValue = this.totalInput.value - this.availableInput.value;
+    this.occupiedInput.setValue(occupiedValue);
+    this.availableInput.disable();
+  }
+
+  updateOccupiedValue() {
+    let availableValue: number = 0;
+    availableValue = this.totalInput.value - this.occupiedInput.value;
+    this.availableInput.setValue(availableValue);
+    this.occupiedInput.disable();
   }
 }

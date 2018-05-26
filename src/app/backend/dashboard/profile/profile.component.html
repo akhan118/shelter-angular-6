@@ -3,8 +3,8 @@
   <h1 class="page-title__text">User Profile</h1>
 </div>
 
-<section class="settings">
-  <mat-card class="settings__card">
+<section class="admin-section">
+  <mat-card class="admin-section__card">
     <div class="button__wrapper">
       <button mat-button class="button button--edit bg-bluejean" (click)="disableForm()">
         <div class="button__content" [class.animate-up]="editing">
@@ -15,7 +15,10 @@
     </div>
     <form class="form form--profile" [formGroup]="userInfoForm" (ngSubmit)="submitForm(userInfoForm)">
       <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="Name" formControlName="name" [class.input--disabled]="!editing"
+        <input matInput class="form__input" type="text" placeholder="First Name" formControlName="firstName" required>
+      </mat-form-field>
+      <mat-form-field class="form__field">
+        <input matInput class="form__input" type="text" placeholder="Last Name" formControlName="lastName" [class.input--disabled]="!editing"
           required>
       </mat-form-field>
       <mat-form-field class="form__field">
@@ -30,7 +33,8 @@
         <input matInput class="form__input" type="text" placeholder="Organization" formControlName="organization" [class.input--disabled]="!editing"
           required>
       </mat-form-field>
-      <button mat-button class="button bg-cranberry" type="submit" [disabled]="userInfoForm.invalid || isSubmitting" *ngIf="editing">
+      <button mat-button class="button button--update bg-cranberry" type="submit" [disabled]="userInfoForm.invalid || isSubmitting"
+        *ngIf="editing">
         <span class="button__text">Update Profile</span>
       </button>
     </form>

@@ -27,22 +27,6 @@
   top: 0;
   left: 0;
 }
-.settings {
-	width: 90%;
-  margin: 0px auto;
-  margin-top: 30px;
-  margin-bottom: 55px;
-  color: rgba(11, 57, 84, 1);
-  color: var(--bluejean-blue);
-}
-
-.settings__title {
-  margin: 15px 0px;
-  font-family: mono;
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  font-weight: 600;
-}
 
 .settings__list .mat-list-item .mat-list-item-content .mat-list-text {
   min-height: 20px;
@@ -52,12 +36,18 @@
 
 .button__wrapper {
   width: 85%;
+  max-width: 550px;
   display: flex;
   justify-content: flex-end;
   margin: 0 auto;
 }
 
 .button--edit {
-  width: 40%;
+  width: 150px;
   margin-bottom: 30px;
+}
+
+.button--update {
+  width: 150px;
+  margin: 0 auto;
 }

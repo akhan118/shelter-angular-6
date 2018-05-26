@@ -135,7 +135,6 @@ Utility Classes
   height: 100%;
 }
 
-
 /******************************
 
 Buttons
@@ -173,11 +172,20 @@ Buttons
 
 /******************************
 
-Form Classes
+Forms
 
 ******************************/
-.form-title {
+input[type='number'] {
+  -moz-appearance: textfield;
+}
 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-title {
 }
 
 .form-title__text {
@@ -213,4 +221,31 @@ Form Classes
   padding: 15px 0px;
   text-align: center;
   font-size: 1.4rem;
+}
+
+/******************************
+
+Cards
+
+******************************/
+.card--section {
+  max-width: 550px;
+}
+
+/******************************
+
+Admin Section Styles
+
+******************************/
+.admin-section {
+  width: 90%;
+  max-width: 750px;
+  margin: 0px auto;
+  margin-top: 30px;
+  margin-bottom: 55px;
+  color: rgba(11, 57, 84, 1);
+  color: var(--bluejean-blue);
+}
+
+.admin-section__card {
 }

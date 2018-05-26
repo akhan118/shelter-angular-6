@@ -2,7 +2,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 30px auto;
   transition: flex-direction 0.4s linear;
 }
 
@@ -39,7 +38,7 @@
   margin: 0px;
 }
 
-.grid__container {
+.grid__list {
   width: 100%;
 }
 
@@ -51,17 +50,11 @@
   bottom: 15px;
 }
 
-.more-button {
+.button-container {
+  display: flex;
   position: absolute;
   top: 5px;
   right: 10px;
-}
-
-.button--left {
-  right: 50px;
-}
-
-.button--right {
 }
 
 .dashboard-card-content {

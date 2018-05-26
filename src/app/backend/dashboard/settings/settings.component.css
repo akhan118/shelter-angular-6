@@ -23,14 +23,6 @@
   top: 0;
   left: 0;
 }
-.settings {
-	width: 90%;
-  margin: 0px auto;
-  margin-top: 30px;
-  margin-bottom: 55px;
-  color: rgba(11, 57, 84, 1);
-  color: var(--bluejean-blue);
-}
 
 .settings__title {
   margin: 15px 0px;

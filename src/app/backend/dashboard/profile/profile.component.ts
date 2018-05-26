@@ -51,7 +51,8 @@ export class ProfileComponent implements OnInit {
   private createUserInfoForm() {
     // Create userInfo FormGroup using FormBuilder module
     this.userInfoForm = this.fb.group({
-      name: ['Malcolm Childs', Validators.required],
+      firstName: ['Malcolm', Validators.required],
+      lastName: ['Childs', Validators.required],
       email: ['mchilds@helpinghanddetroit.com', [Validators.required, Validators.email]],
       password: ['password', Validators.required],
       organization: ['Helping Hand Detroit', Validators.required]
