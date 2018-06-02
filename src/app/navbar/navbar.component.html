@@ -1,9 +1,5 @@
 <header>
   <nav class="nav-menu">
-    <ul class="nav-items" *ngIf="navItems">
-      <li class="nav-item" *ngFor="let navItem of navItems">
-        <a class="nav-link" [routerLink]="[navItem.url]">{{navItem.name}}</a>
-      </li>
-    </ul>
+    <button mat-button class="button button--admin" style="background: #999;" [routerLink]="['/backend/login']">Admin Login</button>
   </nav>
 </header>

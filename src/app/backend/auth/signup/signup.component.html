@@ -1,19 +1,28 @@
-<h3 class="title">Signup</h3>
-
-<form class="signup" [formGroup]="signupForm" (ngSubmit)="submitForm(signupForm)">
-  <label class="form-group">
-    <label class="form-label">Username</label>
-    <input class="form-input" type="text" placeholder="Username" formControlName="username" required>
-  </label>
-  <label class="form-group">
-    <label class="form-label">Email</label>
-    <input class="form-input" type="email" placeholder="Email" formControlName="email" required>
-  </label>
-  <label class="form-group">
-    <label class="form-label">Password</label>
-    <input class="form-input" type="password" placeholder="Password" formControlName="password" required>
-  </label>
-  <button type="submit" [disabled]="signupForm.invalid || isSubmitting">Signup</button>
-</form>
-
-<a class="login-link" [routerLink]="['/backend/login']">Login</a>
+<mat-card class="fill-space">
+  <mat-card-title class="form-title">
+    <p class="color-bluejean-blue form-title__text">Sign Up</p>
+  </mat-card-title>
+  <mat-card-content>
+    <form class="form" [formGroup]="signupForm" (ngSubmit)="submitForm(signupForm)">
+      <mat-form-field class="form__field">
+        <input matInput class="form__input" type="text" placeholder="Username" formControlName="username" required>
+      </mat-form-field>
+      <mat-form-field class="form__field">
+        <input matInput class="form__input" type="email" placeholder="Email" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field class="form__field">
+        <input matInput class="form__input" type="password" placeholder="Password" formControlName="password" required>
+      </mat-form-field>
+      <button mat-button class="button bg-cranberry" type="submit" [disabled]="signupForm.invalid || isSubmitting">
+        <div class="button__content" [class.animate-up]="isSubmitting">
+          <span class="button__text">Sign Up</span>
+          <span class="button__loading">
+            <sa-loading-icon></sa-loading-icon>
+          </span>
+        </div>
+      </button>
+    </form>
+    <div class="divider"></div>
+    <a class="color-cranberry auth-link" [routerLink]="['/backend/login']">Login</a>
+  </mat-card-content>
+</mat-card>
