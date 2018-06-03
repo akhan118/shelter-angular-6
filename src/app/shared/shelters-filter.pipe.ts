@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class SheltersFilterPipe implements PipeTransform {
-  transform(shelters: any, filterValue: string, filterAttribute: string = 'name'): any {
+  transform(shelters: any, filterValue: string, filterAttribute: string = 'shelter_name'): any {
     let filteredShelters: any[] = [];
     if (!filterValue) {
       return shelters;

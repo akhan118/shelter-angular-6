@@ -2,7 +2,7 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 :root {
-  font-size: 62.5%;
+  font-size: 1.2rem;
   --bluejean-blue: rgba(11, 57, 84, 1);
   --cloudy-blue: rgba(37, 206, 209, 1);
   --cranberry: rgba(120, 1, 22, 1);
