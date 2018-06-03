@@ -6,15 +6,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./shelter-item.component.css']
 })
 export class ShelterItemComponent implements OnInit {
-  @Input() ShelterData 
+  @Input() ShelterData;
   ShowInfo: boolean = false;
   constructor() { }
-   
+
 
   ngOnInit() {
-    console.log ('ShelterData', this.ShelterData);
+    console.log('ShelterData', this.ShelterData);
   }
- ShowHide() {
-   this.ShowInfo = !this.ShowInfo;
- }
+  ShowHide() {
+    this.ShowInfo = !this.ShowInfo;
+  }
 }

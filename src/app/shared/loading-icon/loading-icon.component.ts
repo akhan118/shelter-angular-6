@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'sa-loading-icon',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loading-icon.component.css']
 })
 export class LoadingIconComponent implements OnInit {
+  @Input() iconColor: string;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('color', this.iconColor)
   }
 
 }

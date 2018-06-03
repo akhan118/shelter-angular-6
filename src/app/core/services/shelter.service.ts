@@ -1,12 +1,25 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
-import { Http, Headers, RequestOptions, Response ,  } from '@angular/http';
-import { HttpParams , HttpHeaders  , HttpClient } from '@angular/common/http';
+import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
 import { UserDetailsService } from '@appCore/services/user-details.service';
+import { Observable } from 'rxjs';
+
+export class Shelter extends Object {
+  id: number;
+  name: string;
+  EIN: number;
+  address: {
+    street: string;
+    zip: number;
+  }
+  phoneNumber: number;
+  personType: [{
+    id: number,
+    name: 'WOMAN' | 'MEN' | 'YOUTH' | 'FAMILY' | 'ALL';
+  }]
+}
 
 @Injectable()
 export class ShelterService {
-  // private baseUrl: string = 'http://www.alphard.us/v1/api/getallshelters';
   private baseUrl: string = 'http://www.alphard.us/v1/api';
 
   constructor(private http: HttpClient, private userDetails: UserDetailsService) { }
@@ -15,12 +28,10 @@ export class ShelterService {
     return this.http.get('./shelter');
   }
 
-  getAllShelters() {
-    // let shelterUrl: string= this.baseUrl + '/'
-    // return this.http.get(shelterUrl);
-      return this.http.post( this.baseUrl + '/getallshelters', 0 , {
-          headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.userDetails.accessToken),
-        });
+  getShelters(shelterType: number): Observable<Shelter[]> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer${this.userDetails.accessToken}`);
+    const params = new HttpParams().set('shelterType', shelterType.toString());
+    return this.http.get<Shelter[]>(`${this.baseUrl}/getrequestedinfov2`, { headers, params });
   }
 
   getShelterAvailability() {
@@ -31,16 +42,16 @@ export class ShelterService {
     // let shelterUrl: string= this.baseUrl + '/'
     // return this.http.get(shelterUrl);
     const params = new HttpParams()
-  .set('name', param.shelter_name)
-  .set('address', param.shelter_address)
-  .set('city', param.shelter_address_city)
-  .set('state', param.shelter_address_state)
-  .set('phone',  param.shelter_phone);
+      .set('name', param.shelter_name)
+      .set('address', param.shelter_address)
+      .set('city', param.shelter_address_city)
+      .set('state', param.shelter_address_state)
+      .set('phone', param.shelter_phone);
 
-      return this.http.post( this.baseUrl + '/signupshelter', 0 , {
-          headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.userDetails.accessToken),
-          params: params,
-        });
+    return this.http.post(this.baseUrl + '/signupshelter', 0, {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.userDetails.accessToken),
+      params: params,
+    });
   }
 
 
