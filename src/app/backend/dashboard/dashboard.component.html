@@ -1,4 +1,19 @@
-<sa-navbar [navItems]="navLinks"></sa-navbar>
-<p>Welcome {{ username }}</p>
-<router-outlet></router-outlet>
-<sa-footer></sa-footer>
+<mat-drawer-container class="dashboard">
+
+  <!-- Side Nav -->
+  <mat-drawer #drawer mode="over" opened="false" class="dashboard__menu">
+    <sa-admin-sidenav></sa-admin-sidenav>
+  </mat-drawer>
+
+  <!-- Main Content -->
+  <mat-drawer-content class="dashboard__content">
+
+    <!-- Header Content -->
+    <sa-admin-header></sa-admin-header>
+
+    <!-- Dynamic Content -->
+    <main class="dashboard__main">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>

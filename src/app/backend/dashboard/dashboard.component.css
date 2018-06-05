@@ -1,0 +1,25 @@
+.dashboard {
+	height: 100%;
+	overflow: hidden;
+}
+
+.dashboard__content {
+	height: 100%;
+	overflow: hidden;
+}
+
+.dashboard__main {
+	height: calc(100% - 60px);
+	overflow-y: auto;
+	font-size: 1.4rem;
+	background-color: rgba(193, 219, 227, 1);
+}
+
+/****************************************
+
+Material Theme Overrides
+
+****************************************/
+mat-drawer {
+	width: 250px;
+}

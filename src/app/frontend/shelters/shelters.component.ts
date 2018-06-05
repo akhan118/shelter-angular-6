@@ -1,8 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ShelterService } from '@appCore/services/shelter.service';
 import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs/operators';
+
+import { Observable } from 'rxjs';
+import { ShelterService } from '@appCore/services/shelter.service';
+import { ShelterType } from 'app/models/ShelterType';
 
 export class Shelter extends Object {
     id: number;
@@ -26,8 +28,10 @@ export class Shelter extends Object {
 })
 
 export class SheltersComponent implements OnInit {
+    filterValue: string = '';
+    isLoading: boolean = false;
+    typeKey: string = '';
     shelters: Shelter[] = [];
-    shelterType: 'MEN' | 'WOMEN' | 'YOUTH' | 'FAMILY' | '' = '';
 
     constructor(
         private _activated: ActivatedRoute,
@@ -35,15 +39,42 @@ export class SheltersComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.getShelters();
+        this.getShelterType();
     }
 
-    getShelters() {
-        this._shelterService.getAllShelters()
+    /**
+     * Parses the current url to get the shelterType value
+     * from the filter parameter
+     */
+    getShelterType() {
+        this._activated.queryParams.subscribe((params) => {
+
+            // Passes the filter parameter into typeKey variable
+            this.typeKey = params['filter'];
+
+            /**
+             * Checks if the typeKey variable is valid if it's
+             * not we run the getShelters method without an arguement
+             * passed in
+             */
+            if (!this.typeKey) {
+                this.getShelters();
+                return;
+            };
+            const typeValue: number = ShelterType[this.typeKey.toLocaleUpperCase()];
+            this.getShelters(typeValue);
+        });
+    }
+
+    getShelters(shelterType: number = 5) {
+        this.isLoading = true;
+        this._shelterService.getShelters(shelterType)
             .subscribe((shelters: Shelter[]) => {
-                this.shelters = shelters;
-                console.log('shelters', this.shelters)
-            },
-                error => console.error('Error getting shelters', error));
+                this.isLoading = false;
+                this.shelters = shelters
+            }, (error) => {
+                this.isLoading = false;
+                console.error('Error getting shelters', error)
+            });
     }
 }

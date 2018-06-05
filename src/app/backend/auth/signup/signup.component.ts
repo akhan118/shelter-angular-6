@@ -11,6 +11,7 @@ import { UserDetailsService } from '@appCore/services/user-details.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  isSubmitting: boolean = false;
   signupForm: FormGroup;
 
   constructor(
@@ -25,11 +26,12 @@ export class SignupComponent implements OnInit {
   }
 
   createSignupForm() {
+    this.isSubmitting = true;
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required]
-    })
+    });
   }
 
   submitForm(form) {
@@ -41,9 +43,10 @@ export class SignupComponent implements OnInit {
         });
 
       },
-      (error) => {
-        console.error('Error logging into app:', error)
-      });
+        (error) => {
+          this.isSubmitting = false;
+          console.error('Error logging into app:', error);
+        });
   }
 
 }

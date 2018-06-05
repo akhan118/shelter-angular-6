@@ -4,22 +4,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { MaterialModule } from './material.module';
 import { NavbarComponent } from 'app/navbar/navbar.component';
 import { FooterComponent } from 'app/footer/footer.component';
 import { SheltersFilterPipe } from './shelters-filter.pipe';
+import { LoadingIconComponent } from './loading-icon/loading-icon.component';
 
 @NgModule({
   declarations: [
-    SheltersFilterPipe,
-    NavbarComponent,
-    FooterComponent
+    SheltersFilterPipe, 
+    NavbarComponent, 
+    FooterComponent, 
+    LoadingIconComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
     CommonModule,
@@ -27,10 +31,11 @@ import { SheltersFilterPipe } from './shelters-filter.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    MaterialModule,
     SheltersFilterPipe,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LoadingIconComponent
   ]
 })
-
-export class SharedModule { }
+export class SharedModule {}

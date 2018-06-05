@@ -1,0 +1,15 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(11, 57, 84, 1);
+  background-color: var(--bluejean-blue);
+}
+
+.auth-outlet {
+  min-width: 350px;
+  width: 60%;
+  max-width: 450px;
+  height: auto;
+}

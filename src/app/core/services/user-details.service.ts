@@ -10,12 +10,13 @@ export class UserDetailsService {
   constructor() { }
 
   set accessToken(accessToken: string) {
-    localStorage.setItem('token', accessToken);
+    //localStorage.setItem('token', accessToken);
     this.user.token = accessToken;
   }
 
   get accessToken(): string {
-  return localStorage.getItem('token');
+    //return localStorage.getItem('token');
+    return this.user.token;
   }
 
   /// save the username into local storage as well

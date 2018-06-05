@@ -1,0 +1,22 @@
+<nav class="nav">
+  <mat-nav-list class="nav__items">
+    <mat-list-item class="nav__item" [routerLink]="['home']" (click)="closeSidenav()">
+      <mat-icon mat-list-icon class="nav__icon">home</mat-icon>
+      <p mat-line class="nav__text">Home</p>
+    </mat-list-item>
+    <mat-list-item class="nav__item" [routerLink]="['profile']" (click)="closeSidenav()">
+      <mat-icon mat-list-icon class="nav__icon">perm_identity</mat-icon>
+      <p mat-line class="nav__text">User Profile</p>
+    </mat-list-item>
+    <mat-list-item class="nav__item" [routerLink]="['settings']" (click)="closeSidenav()">
+      <mat-icon mat-list-icon class="nav__icon">settings</mat-icon>
+      <p mat-line class="nav__text">Settings</p>
+    </mat-list-item>
+  </mat-nav-list>
+</nav>
+<button mat-button class="button--logout" (click)="logout()">
+  <i class="button--logout__icon material-icons">
+    power_settings_new
+  </i>
+  <p class="button--logout__text">Logout</p>
+</button>

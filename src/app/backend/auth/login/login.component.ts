@@ -11,6 +11,7 @@ import { UserDetailsService } from '@appCore/services/user-details.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isSubmitting: boolean = false;
   loginForm: FormGroup;
 
   constructor(
@@ -34,25 +35,27 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(form) {
+    this.isSubmitting = true;
     this.loginService.login(form.value.username, form.value.password)
       .subscribe((loginResponse) => {
         this.userDetails.accessToken = loginResponse['access_token'];
         this.userDetails.username = loginResponse['username'];
         this.router.navigate(['/backend/dashboard']);
       },
-      (error) => {
-        console.error('Error signing up:', error)
-      });
+        (error) => {
+          this.isSubmitting = false;
+          console.error('Error signing up:', error);
+        });
   }
 
   private setLoginCredentials() {
     this.activatedRoute.queryParamMap
       .subscribe((values) => {
-        let creds = values['params'];
+        const creds = values['params'];
         if (creds['username'] && creds['password']) {
           this.loginForm.setValue({ username: creds['username'], password: creds['password'] });
         }
-      })
+      });
   }
 
 }
