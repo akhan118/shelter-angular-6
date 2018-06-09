@@ -3,13 +3,13 @@
     <label class="filter-label">Filter Shelters by Name</label>
     <input type="search" class="filter-input" placeholder="Filter Shelters" [(ngModel)]="filterValue" />
   </label>
-  <ul class="shelters-list" *ngIf="shelters.length">
-    <sa-shelter-item *ngFor="let shelter of shelters | sheltersFilter:filterValue" [ShelterData]="shelter"></sa-shelter-item>
-  </ul>
   <div *ngIf="isLoading">
     <sa-loading-icon></sa-loading-icon>
   </div>
+  <ul class="shelters-list" *ngIf="shelters.length && !isLoading">
+    <sa-shelter-item *ngFor="let shelter of shelters | sheltersFilter:filterValue" [ShelterData]="shelter"></sa-shelter-item>
+  </ul>
   <div *ngIf="!shelters.length && !isLoading">
-    There are no shelters available for the type {{this.typeKey}}
+    There are no shelters available for the type {{this.typeName}}
   </div>
 </section>

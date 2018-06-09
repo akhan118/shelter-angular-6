@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login.service';
 import { MenuService } from './services/menu.service';
 import { ShelterService } from './services/shelter.service';
+import { ShelterType } from '../models/ShelterType';
+import { ShelterTypeService } from './services/shelter-type.service';
 import { UserDetailsService } from './services/user-details.service';
 
 @NgModule({
@@ -14,6 +16,7 @@ import { UserDetailsService } from './services/user-details.service';
     LoginService,
     MenuService,
     ShelterService,
+    ShelterTypeService,
     UserDetailsService
   ]
 })

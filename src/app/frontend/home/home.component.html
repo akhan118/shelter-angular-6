@@ -1,9 +1,9 @@
 <sa-navbar></sa-navbar>
 <section class="home-content">
-  <ul class="shelter-list">
-    <li class="shelter-item" *ngFor="let shelterType of shelterTypes">
-      <a [routerLink]="['shelters']" [queryParams]="{filter:shelterType}">{{shelterType}}</a>
+  <ul class="shelter-types">
+    <li class="shelter-item" *ngFor="let shelterType of shelterTypes" (click)="setShelterType(shelterType)">
+      <p class="shelter-item__text">{{shelterType}}</p>
     </li>
   </ul>
+  <sa-shelters></sa-shelters>
 </section>
-<sa-footer></sa-footer>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ShelterService } from '@appCore/services/shelter.service';
+import { ShelterTypeService } from '@appCore/services/shelter-type.service';
 
 export class Shelter extends Object {
   id: number;
@@ -18,9 +20,11 @@ export class Shelter extends Object {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  shelters: Shelter[] = [];
-  shelterTypes: string[] = ['All', 'Men', 'Women', 'Youth', 'Family']
+  public shelterTypes: string[] = ['All', 'Men', 'Women', 'Youth', 'Family']
 
-  constructor() { }
+  constructor(private shelterTypeService: ShelterTypeService) { }
 
+  public setShelterType(shelterType: string) {
+    this.shelterTypeService.setShelterType(shelterType);
+  }
 }

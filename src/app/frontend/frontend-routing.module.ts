@@ -8,7 +8,6 @@ const userRoutes: Routes = [
   {
     path: '', children: [
       { path: '', component: HomeComponent },
-      { path: 'shelters', component: SheltersComponent },
       { path: 'signup', component: SheltersSignupComponent },
 
     ]

@@ -30,7 +30,7 @@ export class ShelterService {
 
   getShelters(shelterType: number): Observable<Shelter[]> {
     const headers = new HttpHeaders().set('Authorization', `Bearer${this.userDetails.accessToken}`);
-    const params = new HttpParams().set('shelterType', shelterType.toString());
+    const params = new HttpParams().set('sheltertype', shelterType.toString());
     return this.http.get<Shelter[]>(`${this.baseUrl}/getrequestedinfov2`, { headers, params });
   }
 

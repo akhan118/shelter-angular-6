@@ -5,16 +5,8 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './shelter-item.component.html',
   styleUrls: ['./shelter-item.component.css']
 })
-export class ShelterItemComponent implements OnInit {
+export class ShelterItemComponent {
   @Input() ShelterData;
-  ShowInfo: boolean = false;
+
   constructor() { }
-
-
-  ngOnInit() {
-    console.log('ShelterData', this.ShelterData);
-  }
-  ShowHide() {
-    this.ShowInfo = !this.ShowInfo;
-  }
 }
