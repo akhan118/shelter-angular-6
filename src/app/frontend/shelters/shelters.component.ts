@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
@@ -43,12 +42,18 @@ export class SheltersComponent implements OnInit {
         this.getShelterType();
     }
 
-
     getShelterType() {
         this.shelterTypeService.value$.subscribe((value) => {
             this.typeName = value;
-            const typeValue: number = ShelterType[value.toLocaleUpperCase()];
-            this.getShelters(typeValue);
+
+            /*
+                Get the shelterType Id based on the value 
+                from the shelterTypeService
+            */
+            const typeId: number = ShelterType[value.toLocaleUpperCase()];
+
+            // Call the getShelter function passing in the typeId value
+            this.getShelters(typeId);
         });
     }
 
@@ -57,7 +62,7 @@ export class SheltersComponent implements OnInit {
         this.shelterService.getShelters(shelterType)
             .subscribe((shelters: Shelter[]) => {
                 this.isLoading = false;
-                this.shelters = shelters
+                this.shelters = shelters;
             }, (error) => {
                 this.isLoading = false;
                 console.error('Error getting shelters:', error)

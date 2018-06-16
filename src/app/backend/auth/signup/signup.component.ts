@@ -26,7 +26,6 @@ export class SignupComponent implements OnInit {
   }
 
   createSignupForm() {
-    this.isSubmitting = true;
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', Validators.required],
@@ -35,13 +34,13 @@ export class SignupComponent implements OnInit {
   }
 
   submitForm(form) {
+    this.isSubmitting = true;
     this.loginService.signup(form.value.username, form.value.email, form.value.password)
       .subscribe((signupResponse) => {
-
+        this.isSubmitting = false;
         this.router.navigate(['/backend/login'], {
           queryParams: { username: form.value.username, password: form.value.password }
         });
-
       },
         (error) => {
           this.isSubmitting = false;
