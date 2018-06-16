@@ -8,23 +8,32 @@
       <mat-card>
         <div class="example-container">
           <mat-form-field>
-            <input matInput  [(ngModel)]="shelterName" placeholder="Shelter Name">
+            <input matInput  [(ngModel)]="shelterName" placeholder="Shelter Name" required>
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput  [(ngModel)]="shelterAddressNumber" type='number' placeholder="Address">
+            <input matInput  [(ngModel)]="shelterAddressNumber" type='text' placeholder="Address" required>
           </mat-form-field>
           <mat-form-field>
-            <input matInput  [(ngModel)]="shelterCity" placeholder="City">
+            <input matInput  [(ngModel)]="shelterCity" placeholder="City" required>
           </mat-form-field>
           <mat-form-field>
-            <input matInput  [(ngModel)]="shelterState" placeholder="State">
+            <input matInput  [(ngModel)]="shelterState" placeholder="State" required>
           </mat-form-field>
-
           <mat-form-field>
-            <input matInput  [(ngModel)]="shelterTel" type='number' placeholder="Tel">
+            <input matInput  [(ngModel)]="shelterCounty" type='text' placeholder="County" required>
           </mat-form-field>
-
+          
+          <mat-form-field>
+            <input matInput  [(ngModel)]="shelterTel" type='number' placeholder="Tel" minlength='10'required>
+            <div *ngIf="shelterTel.errors.minlength">
+                Phone  number must be at least 10 characters long.
+              </div>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput  [(ngModel)]="shelterEmail" type='email' placeholder="Email" required>
+          </mat-form-field>
+          
           <button mat-raised-button	(click)="save();">Submit to API and SAVE!</button>
 
         </div>
