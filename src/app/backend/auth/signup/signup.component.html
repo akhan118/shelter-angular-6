@@ -5,7 +5,10 @@
   <mat-card-content>
     <form class="form" [formGroup]="signupForm" (ngSubmit)="submitForm(signupForm)">
       <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="name" formControlName="name" required>
+        <input matInput class="form__input" type="text" placeholder="username" formControlName="username" required>
+      </mat-form-field>
+      <mat-form-field class="form__field">
+        <input matInput class="form__input" type="password" placeholder="password" formControlName="password" required>
       </mat-form-field>
       <mat-form-field class="form__field">
         <input matInput class="form__input" type="email" placeholder="Email" formControlName="email" required>
@@ -28,6 +31,7 @@
               <mat-form-field class="form__field">
                   <input matInput class="form__input" type="text" placeholder="county" formControlName="county" required>
                 </mat-form-field>
+                
       <button mat-button class="button bg-cranberry" type="submit" [disabled]="signupForm.invalid || isSubmitting">
         <div class="button__content" [class.animate-up]="isSubmitting">
           <span class="button__text">Sign Up</span>
