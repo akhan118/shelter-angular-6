@@ -26,17 +26,34 @@ export class SignupComponent implements OnInit {
   }
 
   createSignupForm() {
-    this.isSubmitting = true;
     this.signupForm = this.fb.group({
-      username: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', Validators.required ],
+      password:['', Validators.required ],
+      street: ['', Validators.required ],
+      city: ['', Validators.required ],
+      state: ['', Validators.required ],
+      zipCode: ['', Validators.required ],
+      phone: ['', Validators.required ],
+      county: ['', Validators.required ],
+      email: ['', Validators.required ]
     });
   }
 
   submitForm(form) {
+    this.isSubmitting = true;
+    const data = {
+      shelter_name: form.value.name,
+      shelter_address: form.value.street,
+      shelter_address_city: form.value.city,
+      shelter_address_state: form.value.state,
+      shelter_phone: form.value.phone,
+      shelter_county: form.value.county,
+      shelter_email: form.value.email,
+      shelter_zipCode: form.value.zipCode
+    };
     this.loginService.signup(form.value.username, form.value.email, form.value.password)
       .subscribe((signupResponse) => {
+        this.isSubmitting = false;
 
         this.router.navigate(['/backend/login'], {
           queryParams: { username: form.value.username, password: form.value.password }
