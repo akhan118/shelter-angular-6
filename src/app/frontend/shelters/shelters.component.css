@@ -18,30 +18,17 @@
   padding: 0px;
 }
 
-.filter-field {
-  width: 300px;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 20px;
+.mat-bottom-sheet-container {
+  background-color: rgba(11, 57, 84, 1);
+  background-color: var(--bluejean-blue);
 }
 
-.filter-label {
-
-}
-
-.filter-input {
-  height: 40px;
-  max-height: 40px;
-  margin-top: 6px;
-  padding: 5px;
-  padding-left: 15px;
-}
-
-.shelter-filter {
-  min-height: 30px;
-  width: 200px;
+.button--filter {
+  width: 250px;
+  min-height: 40px;
+  margin: 10px auto;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .shelters-list {

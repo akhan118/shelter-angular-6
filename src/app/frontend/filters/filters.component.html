@@ -1,0 +1,20 @@
+<section class="filters-container">
+  <p class="container-title">Filters</p>
+  <div class="filter-row filter-row-1">
+    <p class="shelter-title">Shelter Type</p>
+    <div class="filter--types" aria-label="Shelter Type Filter">
+      <button mat-button class="button" *ngFor="let type of shelterTypes" (click)="setShelterType(type)" [class.selected]="type.uiSelected">
+        <span class="button__text">{{type.value}}</span>
+      </button>
+    </div>
+  </div>
+  <div class="filter-row filter-row-2">
+    <p class="shelter-title">Last Updated</p>
+    <div class="filter--types" aria-label="Last Updated Filter">
+      <button mat-button class="button" *ngFor="let slot of timeSlots" [class.selected]="slot.uiSelected">
+        <span class="button__text">{{slot.value}}</span>
+      </button>
+    </div>
+  </div>
+  <button mat-button class="button bg-cranberry button--apply">Apply Filters</button>
+</section>

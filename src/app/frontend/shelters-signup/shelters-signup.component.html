@@ -3,36 +3,45 @@
   <div class="col-2">
   	<header>Header</header>
     <main class="content">
-    <article>
+        
+      <form class="form" [formGroup]="signUpForm"  (ngSubmit)="save(signUpForm)">
+       <mat-form-field>
+              <input matInput class="form-control" placeholder="name" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field>
+            <input matInput class="form-control" type="text" placeholder="street" formControlName="street" required>
+      </mat-form-field>
 
-      <mat-card>
-        <div class="example-container">
-          <mat-form-field>
-            <input matInput  [(ngModel)]="shelterName" placeholder="Shelter Name">
-          </mat-form-field>
+      <mat-form-field>
+                  <input matInput class="form-control" placeholder="city" formControlName="city" required>
+      </mat-form-field>  
 
-          <mat-form-field>
-            <input matInput  [(ngModel)]="shelterAddressNumber" type='number' placeholder="Address">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput  [(ngModel)]="shelterCity" placeholder="City">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput  [(ngModel)]="shelterState" placeholder="State">
-          </mat-form-field>
+      <mat-form-field>
+           <input matInput class="form-control" placeholder="state" formControlName="state" required>
+      </mat-form-field>
 
-          <mat-form-field>
-            <input matInput  [(ngModel)]="shelterTel" type='number' placeholder="Tel">
-          </mat-form-field>
+      <mat-form-field>
+         <input matInput class="form-control" type="number"  placeholder="zipCode"  formControlName="zipCode" required>
+      </mat-form-field>
 
-          <button mat-raised-button	(click)="save();">Submit to API and SAVE!</button>
+        <mat-form-field>
+             <input matInput class="form-control" type="tel" placeholder="phone" formControlName="phone" required>
+        </mat-form-field>
 
-        </div>
-</mat-card>
+      <mat-form-field>
+         <input matInput class="form-control" placeholder="county" formControlName="county" required>
+      </mat-form-field>
+      
+    <mat-form-field>
+        <input matInput class="form-control" type="email" placeholder="email" formControlName="email" required>
+      </mat-form-field>
+
+        <button type="submit">submit</button>
+      </form>
 
 
 
-    </article>
+    
     <aside>Aside</aside>
     </main>
   	<footer>Footer</footer>

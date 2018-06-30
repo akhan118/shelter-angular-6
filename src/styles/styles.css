@@ -4,7 +4,7 @@
 :root {
   font-size: 0.8rem;
   --bluejean-blue: rgba(11, 57, 84, 1);
-  --cloudy-blue: rgba(37, 206, 209, 1);
+  --sky-blue: rgba(216, 226, 232, 1);
   --cranberry: rgba(120, 1, 22, 1);
 }
 
@@ -57,7 +57,7 @@ Colors
 ******************************/
 .color-cloudy {
   color: rgba(37, 206, 209, 1);
-  color: var(--cloudy-blue);
+  color: var(--sky-blue);
 }
 
 .color-bluejean {
@@ -72,7 +72,7 @@ Colors
 
 .bg-cloudy {
   background-color: rgba(37, 206, 209, 1);
-  background-color: var(--cloudy-blue);
+  background-color: var(--sky-blue);
 }
 
 .bg-bluejean {
@@ -189,6 +189,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .form-title__text {
+  margin: 10px 0px;
   font-size: 2rem;
   text-align: center;
 }
@@ -218,7 +219,6 @@ input[type='number']::-webkit-outer-spin-button {
 .auth-link {
   width: 100%;
   display: block;
-  padding: 15px 0px;
   text-align: center;
   font-size: 1.4rem;
 }

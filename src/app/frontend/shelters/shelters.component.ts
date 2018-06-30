@@ -1,25 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Observable } from 'rxjs';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 
 import { ShelterService } from '@appCore/services/shelter.service';
+import { Shelter } from 'app/models/Shelter';
 import { ShelterType } from 'app/models/ShelterType';
 import { ShelterTypeService } from '@appCore/services/shelter-type.service';
-
-export class Shelter extends Object {
-    id: number;
-    name: string;
-    EIN: number;
-    address: {
-        street: string;
-        zip: number;
-    }
-    phoneNumber: number;
-    personType: [{
-        id: number,
-        name: 'WOMAN' | 'MEN' | 'YOUTH' | 'FAMILY' | 'ALL';
-    }]
-}
+import { FiltersComponent } from '@appFrontend/filters/filters.component';
 
 @Component({
     selector: 'sa-shelters',
@@ -34,6 +20,7 @@ export class SheltersComponent implements OnInit {
     shelters: Shelter[] = [];
 
     constructor(
+        private bottomSheet: MatBottomSheet,
         private shelterService: ShelterService,
         private shelterTypeService: ShelterTypeService
     ) { }
@@ -61,11 +48,23 @@ export class SheltersComponent implements OnInit {
         this.isLoading = true;
         this.shelterService.getShelters(shelterType)
             .subscribe((shelters: Shelter[]) => {
+                let allShelters: Shelter[] = shelters;
+                if (shelterType !== 5) {
+                    setTimeout(() => {
+                        this.isLoading = false;
+                        this.shelters = allShelters.filter(shelter => shelter.shelter_type.id === shelterType);
+                    }, 300)
+                    return;
+                }
                 this.isLoading = false;
-                this.shelters = shelters;
+                this.shelters = allShelters;
             }, (error) => {
                 this.isLoading = false;
                 console.error('Error getting shelters:', error)
             });
+    }
+
+    showFilters() {
+        this.bottomSheet.open(FiltersComponent);
     }
 }

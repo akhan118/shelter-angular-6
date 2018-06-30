@@ -1,6 +1,27 @@
-<li class="shelter-item" *ngIf="ShelterData">
-  <p class="shelter-name">{{ShelterData.shelter_name}}</p>
-
-  <p class="shelter-address">{{ShelterData.shelter_address}} {{ShelterData.shelter_address_zip}}</p>
-  <p class="shelter-types" *ngFor="let type of ShelterData.personType">{{type.name}}</p>
-</li>
+<mat-card class="shelter-card" *ngIf="ShelterData">
+  <article class="card-row-1">
+    <mat-card-title class="color-bluejean shelter-name">{{ShelterData.shelter_name}}</mat-card-title>
+    <mat-card-subtitle class="color-bluejean shelter-type">{{ShelterData.shelter_type.name}}</mat-card-subtitle>
+  </article>
+  <mat-card-content>
+    <p class="color-bluejean shelter-beds">
+      {{ShelterData.available}} bed{{ShelterData.available > 1 ? '\'s' : ''}} available
+    </p>
+    <p class="color-bluejean shelter-updated">
+      Last updated {{ShelterData.last_updated}} mins ago
+    </p>
+  </mat-card-content>
+  <div class="card-row-3">
+    <article class="shelter-location">
+      <p class="color-bluejean shelter-street">{{ShelterData.shelter_address}}</p>
+      <p class="color-bluejean shelter-location__state">
+        {{ShelterData.shelter_address_city}}, {{ShelterData.shelter_address_state}}
+      </p>
+    </article>
+    <button mat-button class="button button--phone bg-bluejean">
+      <a class="button__content phone-link" href="tel:+1{{ShelterData.shelter_phone}}">
+        <span class="button__text">Call</span>
+      </a>
+    </button>
+  </div>
+</mat-card>

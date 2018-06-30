@@ -1,8 +1,5 @@
 <section class="shelters-content">
-  <label class="filter-field">
-    <label class="filter-label">Filter Shelters by Name</label>
-    <input type="search" class="filter-input" placeholder="Filter Shelters" [(ngModel)]="filterValue" />
-  </label>
+  <button mat-button class="button bg-cranberry button--filter" (click)="showFilters()">Filters</button>
   <div *ngIf="isLoading">
     <sa-loading-icon></sa-loading-icon>
   </div>

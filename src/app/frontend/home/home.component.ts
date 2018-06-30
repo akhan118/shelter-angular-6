@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ShelterService } from '@appCore/services/shelter.service';
 import { ShelterTypeService } from '@appCore/services/shelter-type.service';
 
 export class Shelter extends Object {

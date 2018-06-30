@@ -1,22 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
+
+import { Shelter } from 'app/models/Shelter';
 import { UserDetailsService } from '@appCore/services/user-details.service';
 import { Observable } from 'rxjs';
-
-export class Shelter extends Object {
-  id: number;
-  name: string;
-  EIN: number;
-  address: {
-    street: string;
-    zip: number;
-  }
-  phoneNumber: number;
-  personType: [{
-    id: number,
-    name: 'WOMAN' | 'MEN' | 'YOUTH' | 'FAMILY' | 'ALL';
-  }]
-}
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class ShelterService {
@@ -38,20 +26,22 @@ export class ShelterService {
     return this.http.get('./availability');
   }
 
-  signupShelters(param) {
+  signupShelters(shelterData) {
     // let shelterUrl: string= this.baseUrl + '/'
     // return this.http.get(shelterUrl);
     const params = new HttpParams()
-      .set('name', param.shelter_name)
-      .set('address', param.shelter_address)
-      .set('city', param.shelter_address_city)
-      .set('state', param.shelter_address_state)
-      .set('phone', param.shelter_phone);
+      .set('shelter_user', shelterData.name)
+      .set('shelter_address_street', shelterData.address)
+      .set('shelter_address_city', shelterData.city)
+      .set('shelter_address_state', shelterData.state)
+      .set('shelter_zip', shelterData.zip)
+      .set('shelter_county', shelterData.county)
+      .set('shelter_phone', shelterData.phone);
 
-    return this.http.post(this.baseUrl + '/signupshelter', 0, {
-      headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.userDetails.accessToken),
-      params: params,
-    });
+    const headers = new HttpHeaders()
+      .set('Authorization', 'Bearer ' + this.userDetails.accessToken);
+
+    return this.http.post(this.baseUrl + '/signupshelter', { headers, params });
   }
 
 
