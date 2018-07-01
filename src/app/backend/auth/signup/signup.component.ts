@@ -42,14 +42,14 @@ export class SignupComponent implements OnInit {
   submitForm(form: FormGroup) {
     this.isSubmitting = true;
     const data = {
-      shelter_name: form.value.name,
-      shelter_address: form.value.street,
-      shelter_address_city: form.value.city,
-      shelter_address_state: form.value.state,
-      shelter_phone: form.value.phone,
-      shelter_county: form.value.county,
-      shelter_email: form.value.email,
-      shelter_zipCode: form.value.zipCode
+      name: form.value.name,
+      address: form.value.street,
+      city: form.value.city,
+      state: form.value.state,
+      phone: form.value.phone,
+      county: form.value.county,
+      email: form.value.email,
+      zipCode: form.value.zipCode
     };
     this.loginService.signup(data)
       .subscribe((signupResponse) => {
