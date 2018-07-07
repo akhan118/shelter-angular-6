@@ -51,7 +51,7 @@ export class SignupComponent implements OnInit {
       shelter_email: form.value.email,
       shelter_zipCode: form.value.zipCode
     };
-    this.loginService.signup(form.value.username, form.value.email, form.value.password)
+    this.loginService.signup(data)
       .subscribe((signupResponse) => {
         this.isSubmitting = false;
 
