@@ -11,7 +11,6 @@
 .page-title__text {
   margin: 0px;
   position: relative;
-  font-size: 3rem;
   color: #fff;
 }
 
@@ -27,7 +26,6 @@
 .settings__title {
   margin: 15px 0px;
   font-family: mono;
-  font-size: 1.3rem;
   text-transform: uppercase;
   font-weight: 600;
 }

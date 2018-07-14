@@ -23,15 +23,11 @@ p {
 .shelter-name {
   margin-top: 0px;
   margin-bottom: 0px;
-}
-
-.shelter-name {
-  font-size: 1.6rem;
+  line-height: 1;
 }
 
 .shelter-type {
   width: 70px;
-  font-size: 1.4rem;
   font-weight: 600;
 }
 
@@ -42,7 +38,6 @@ p {
 }
 
 .shelter-beds {
-  font-size: 1.4rem;
   font-weight: 600;
 }
 
@@ -51,7 +46,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 1.2rem;
+  line-height: 1.2;
 }
 
 .button--phone {

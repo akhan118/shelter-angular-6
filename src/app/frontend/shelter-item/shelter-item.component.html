@@ -1,9 +1,9 @@
 <mat-card class="shelter-card" *ngIf="ShelterData">
   <article class="card-row-1">
-    <mat-card-title class="color-bluejean shelter-name">{{ShelterData.shelter_name}}</mat-card-title>
+    <mat-card-title class="color-bluejean shelter-name font-size-md">{{ShelterData.shelter_name}}</mat-card-title>
     <mat-card-subtitle class="color-bluejean shelter-type">{{ShelterData.shelter_type.name}}</mat-card-subtitle>
   </article>
-  <mat-card-content>
+  <mat-card-content class="font-size-sm">
     <p class="color-bluejean shelter-beds">
       {{ShelterData.available}} bed{{ShelterData.available > 1 ? '\'s' : ''}} available
     </p>
@@ -12,7 +12,7 @@
     </p>
   </mat-card-content>
   <div class="card-row-3">
-    <article class="shelter-location">
+    <article class="shelter-location font-size-sm">
       <p class="color-bluejean shelter-street">{{ShelterData.shelter_address}}</p>
       <p class="color-bluejean shelter-location__state">
         {{ShelterData.shelter_address_city}}, {{ShelterData.shelter_address_state}}
