@@ -1,7 +1,7 @@
 <section class="shelters-content">
   <button mat-button class="button bg-cranberry button--filter" (click)="showFilters()">Filters</button>
   <div *ngIf="isLoading">
-    <sa-loading-icon></sa-loading-icon>
+    <sa-loading-icon [iconColor]="'#0B3954'"></sa-loading-icon>
   </div>
   <ul class="shelters-list" *ngIf="shelters.length && !isLoading">
     <sa-shelter-item *ngFor="let shelter of shelters | sheltersFilter:filterValue" [ShelterData]="shelter"></sa-shelter-item>
