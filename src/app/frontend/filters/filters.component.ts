@@ -14,14 +14,17 @@ class ShelterType extends Object {
 })
 
 export class FiltersComponent {
-  public shelterTypes: ShelterType[] = [
+
+  shelterTypes: ShelterType[] = [
     { value: 'Men', uiSelected: false },
     { value: 'Women', uiSelected: false },
     { value: 'Youth', uiSelected: false },
     { value: 'Family', uiSelected: false }
   ];
 
-  public timeSlots: Array<Object> = [
+  selectedType: ShelterType;
+
+  timeSlots: object[] = [
     { value: 5, uiSelected: false },
     { value: 10, uiSelected: false },
     { value: 15, uiSelected: false },
@@ -30,17 +33,22 @@ export class FiltersComponent {
 
   constructor(private shelterTypeService: ShelterTypeService) { }
 
-  public setShelterType(shelterType: ShelterType) {
-    this.resetShelterTypes(shelterType);
+  applyFilters() {
+    this.shelterTypeService.setShelterType(this.selectedType.value);
+  }
+
+  setShelterType(shelterType: ShelterType) {
     shelterType.uiSelected = !shelterType.uiSelected;
-    this.shelterTypeService.setShelterType(shelterType.value);
+    this.selectedType = shelterType;
+    this.resetShelterTypes(shelterType);
+
   }
 
   private resetShelterTypes(shelterType: ShelterType) {
-    return this.shelterTypes.filter(type => {
-      console.log('type', type)
-      type.value === shelterType.value
-      type.uiSelected = false
+    this.shelterTypes.forEach(type => {
+      if (type.value !== shelterType.value) {
+        type.uiSelected = false;
+      }
     });
   }
 

@@ -31,8 +31,6 @@ p {
   font-weight: 600;
 }
 
-/* @media and (min-width: ) */
-
 .shelter-type.mat-card-subtitle {
   margin-top: 0px;
 }
@@ -50,11 +48,26 @@ p {
 }
 
 .button--phone {
+  display: block;
   margin-top: 15px;
   padding: 0px;
   color: #fff;
   border: 1px solid rgba(11, 57, 84, 1);
   border: 1px solid var(--bluejean-blue);
+}
+
+.shelter-phone {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .button--phone {
+    display: none;
+  }
+
+  .shelter-phone {
+    display: block;
+  }
 }
 
 .button--phone .button__content {
@@ -75,7 +88,7 @@ p {
 .card-row-3 {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .card-row-3 .mat-card-actions {
@@ -86,9 +99,6 @@ p {
 @media (min-width: 701px) {
   .card-row-3 {
     flex-direction: row;
-  }
-
-  .shelter-phone {
-    margin-top: 0px;
+    align-items: center;
   }
 }

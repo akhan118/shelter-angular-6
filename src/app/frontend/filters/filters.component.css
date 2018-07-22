@@ -4,6 +4,8 @@
 }
 
 .container-title {
+  padding-top: 15px;
+  padding-bottom: 50px;
   font-weight: 700;
   text-align: center;
 }
@@ -14,6 +16,10 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+}
+
+.shelter-title {
+  margin-bottom: 12px;
 }
 
 .filter--types .button {

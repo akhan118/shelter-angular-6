@@ -5,7 +5,7 @@
   </article>
   <mat-card-content class="font-size-sm">
     <p class="color-bluejean shelter-beds">
-      {{ShelterData.available}} bed{{ShelterData.available > 1 ? '\'s' : ''}} available
+      {{ShelterData.available > 0 ? '' : 'No'}} beds available
     </p>
     <p class="color-bluejean shelter-updated">
       Last updated {{ShelterData.last_updated}} mins ago
@@ -23,5 +23,10 @@
         <span class="button__text">Call</span>
       </a>
     </button>
+    <p class="color-bluejean shelter-phone font-size-sm">Phone:
+      <a class="button__content color-bluejean" href="tel:+1{{ShelterData.shelter_phone}}">
+        {{ShelterData.shelter_phone | formatPhone}}
+      </a>
+    </p>
   </div>
 </mat-card>

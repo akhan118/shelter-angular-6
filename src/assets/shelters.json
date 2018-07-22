@@ -7,7 +7,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48221,
     "shelter_phone": 3134819231,
-    "available": 4,
+    "available": 1,
     "last_updated": 60,
     "shelter_type": {
       "id": 3,
@@ -22,7 +22,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48221,
     "shelter_phone": 3134819231,
-    "available": 2,
+    "available": 1,
     "last_updated": 13,
     "shelter_type": {
       "id": 2,
@@ -37,7 +37,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48238,
     "shelter_phone": 3134819231,
-    "available": 5,
+    "available": 1,
     "last_updated": 14,
     "shelter_type": {
       "id": 2,
@@ -52,7 +52,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48221,
     "shelter_phone": 3134819231,
-    "available": 4,
+    "available": 0,
     "last_updated": 2,
     "shelter_type": {
       "id": 4,
@@ -67,7 +67,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48212,
     "shelter_phone": 3134819231,
-    "available": 3,
+    "available": 1,
     "last_updated": 6,
     "shelter_type": {
       "id": 3,
@@ -82,7 +82,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48220,
     "shelter_phone": 3134819231,
-    "available": 5,
+    "available": 0,
     "last_updated": 7,
     "shelter_type": {
       "id": 1,
@@ -97,7 +97,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48122,
     "shelter_phone": 3134819231,
-    "available": 3,
+    "available": 1,
     "last_updated": 8,
     "shelter_type": {
       "id": 4,
@@ -112,7 +112,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48223,
     "shelter_phone": 3134819231,
-    "available": 4,
+    "available": 1,
     "last_updated": 1,
     "shelter_type": {
       "id": 3,
@@ -127,7 +127,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48221,
     "shelter_phone": 3134819231,
-    "available": 7,
+    "available": 1,
     "last_updated": 20,
     "shelter_type": {
       "id": 2,
@@ -142,7 +142,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48223,
     "shelter_phone": 3134819212,
-    "available": 2,
+    "available": 1,
     "last_updated": 12,
     "shelter_type": {
       "id": 2,
@@ -172,7 +172,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48221,
     "shelter_phone": 3134819231,
-    "available": 2,
+    "available": 1,
     "last_updated": 9,
     "shelter_type": {
       "id": 1,
@@ -187,7 +187,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48221,
     "shelter_phone": 3134819231,
-    "available": 3,
+    "available": 1,
     "last_updated": 3,
     "shelter_type": {
       "id": 3,
@@ -202,7 +202,7 @@
     "shelter_address_state": "MI",
     "shelter_address_zip": 48202,
     "shelter_phone": 3134819231,
-    "available": 7,
+    "available": 1,
     "last_updated": 18,
     "shelter_type": {
       "id": 1,

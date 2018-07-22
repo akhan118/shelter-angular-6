@@ -9,9 +9,11 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { SheltersFilterPipe } from '@appShared/shelters-filter.pipe';
 import { LoadingIconComponent } from '@appShared/loading-icon/loading-icon.component';
+import { FormatPhonePipe } from './phone.pipe';
 
 @NgModule({
   declarations: [
+    FormatPhonePipe,
     SheltersFilterPipe,
     NavbarComponent,
     FooterComponent,
@@ -35,7 +37,8 @@ import { LoadingIconComponent } from '@appShared/loading-icon/loading-icon.compo
     SheltersFilterPipe,
     NavbarComponent,
     FooterComponent,
-    LoadingIconComponent
+    LoadingIconComponent,
+    FormatPhonePipe
   ]
 })
 export class SharedModule { }
