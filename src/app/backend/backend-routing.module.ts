@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { BackendComponent } from './backend.component';
+import { BackendComponent } from '@appBackend/backend.component';
 import { AuthGuard } from '@appBackend/auth/auth.guard';
 
 const backendRoutes: Routes = [
@@ -24,4 +24,4 @@ const backendRoutes: Routes = [
   exports: [RouterModule],
   providers: [AuthGuard]
 })
-export class BackendRoutingModule {}
+export class BackendRoutingModule { }

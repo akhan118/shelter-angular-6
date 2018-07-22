@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatCardModule,
+  MatCheckboxModule,
   MatDialogModule,
   MatFormFieldModule,
   MatGridListModule,
@@ -9,6 +10,7 @@ import {
   MatInputModule,
   MatListModule,
   MatMenuModule,
+  MatSelectModule,
   MatSidenavModule,
   MatSliderModule,
   MatToolbarModule
@@ -18,6 +20,7 @@ import {
   exports: [
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatDialogModule,
     MatFormFieldModule,
     MatGridListModule,
@@ -25,6 +28,7 @@ import {
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
     MatToolbarModule

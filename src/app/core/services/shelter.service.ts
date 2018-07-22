@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpParams, HttpHeaders, HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { Shelter } from 'app/models/Shelter';
+import { Shelter } from '../../models/Shelter';
 import { UserDetailsService } from '@appCore/services/user-details.service';
 import { Observable, throwError } from 'rxjs';
 

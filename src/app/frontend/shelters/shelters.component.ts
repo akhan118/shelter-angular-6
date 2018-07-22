@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 
 import { ShelterService } from '@appCore/services/shelter.service';
-import { Shelter } from 'app/models/Shelter';
-import { ShelterType } from 'app/models/ShelterType';
+import { Shelter } from '../../models/Shelter';
+import { ShelterType } from '../../models/ShelterType';
 import { ShelterTypeService } from '@appCore/services/shelter-type.service';
 import { FiltersComponent } from '@appFrontend/filters/filters.component';
 

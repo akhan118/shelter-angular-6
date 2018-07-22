@@ -1,0 +1,57 @@
+<div class="page-title">
+  <div class="page-title__background"></div>
+  <h2 class="page-title__text">Shelter Details</h2>
+</div>
+
+<section class="admin-section">
+  <mat-card class="admin-section__card">
+    <div class="button__wrapper">
+      <button mat-button class="button button--edit bg-bluejean" (click)="disableForm()">
+        <div class="button__content" [class.animate-up]="editing">
+          <span class="button__text">Edit</span>
+          <span class="button__text">Cancel</span>
+        </div>
+      </button>
+    </div>
+    <form class="form form--profile" [formGroup]="shelterForm" (ngSubmit)="submitForm(shelterForm)">
+      <mat-form-field class="form__field">
+        <input matInput class="form__input" type="text" placeholder="Name" formControlName="name" readonly>
+      </mat-form-field>
+      <mat-form-field class="form__field">
+        <input matInput class="form__input" type="number" placeholder="EIN" formControlName="EIN" readonly>
+      </mat-form-field>
+      <ng-container formGroupName="editableFields">
+        <mat-form-field class="form__field">
+          <input matInput class="form__input" type="text" placeholder="Address" formControlName="address">
+        </mat-form-field>
+        <mat-form-field class="form__field">
+          <mat-select class="form__input" type="text" placeholder="Shelter Type" formControlName="shelterType">
+            <mat-option *ngFor="let type of shelterTypes" [value]="type">{{type.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-checkbox class="form__field" type="checkbox" formControlName="availability">
+          Beds Available
+        </mat-checkbox>
+        <mat-form-field class="form__field">
+          <input matInput class="form__input" type="text" placeholder="City" formControlName="city">
+        </mat-form-field>
+        <mat-form-field class="form__field">
+          <input matInput class="form__input" type="text" placeholder="State" formControlName="state">
+        </mat-form-field>
+        <mat-form-field class="form__field">
+          <input matInput class="form__input" type="number" placeholder="Zip" formControlName="zipCode">
+        </mat-form-field>
+        <mat-form-field class="form__field">
+          <input matInput class="form__input" type="text" placeholder="County" formControlName="county">
+        </mat-form-field>
+        <mat-form-field class="form__field">
+          <input matInput class="form__input" type="tel" placeholder="Phone Number" formControlName="phone">
+        </mat-form-field>
+      </ng-container>
+      <button mat-button class="button button--update bg-cranberry" type="submit" [disabled]="shelterForm.invalid || isSubmitting"
+        *ngIf="editing">
+        <span class="button__text">Update Details</span>
+      </button>
+    </form>
+  </mat-card>
+</section>

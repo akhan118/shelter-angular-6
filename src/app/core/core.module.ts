@@ -1,12 +1,12 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { LoginService } from './services/login.service';
-import { MenuService } from './services/menu.service';
-import { ShelterService } from './services/shelter.service';
+import { LoginService } from '@appCore/services/login.service';
+import { MenuService } from '@appCore/services/menu.service';
+import { ShelterService } from '@appCore/services/shelter.service';
 import { ShelterType } from '../models/ShelterType';
-import { ShelterTypeService } from './services/shelter-type.service';
-import { UserDetailsService } from './services/user-details.service';
+import { ShelterTypeService } from '@appCore/services/shelter-type.service';
+import { UserDetailsService } from '@appCore/services/user-details.service';
 
 @NgModule({
   imports: [
