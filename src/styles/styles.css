@@ -243,6 +243,11 @@ input[type='number']::-webkit-outer-spin-button {
 Cards
 
 ******************************/
+.mat-card {
+  max-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .card--section {
   max-width: 550px;
 }
