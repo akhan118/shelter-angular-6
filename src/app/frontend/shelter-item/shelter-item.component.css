@@ -39,6 +39,10 @@ p {
   font-weight: 600;
 }
 
+.shelter-beds.no-beds {
+  color: red;
+}
+
 .shelter-location {
   flex: 1;
   display: flex;

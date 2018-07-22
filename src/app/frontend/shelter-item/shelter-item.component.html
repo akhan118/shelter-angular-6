@@ -4,7 +4,7 @@
     <mat-card-subtitle class="color-bluejean shelter-type">{{ShelterData.shelter_type.name}}</mat-card-subtitle>
   </article>
   <mat-card-content class="font-size-sm">
-    <p class="color-bluejean shelter-beds">
+    <p class="color-bluejean shelter-beds" [class.no-beds]="ShelterData.available === 0">
       {{ShelterData.available > 0 ? '' : 'No'}} beds available
     </p>
     <p class="color-bluejean shelter-updated">
