@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
   submitForm(form) {
     this.isSubmitting = true;
     const data = {
-      shelter_name: form.value.name,
+      shelter_name: form.value.username,
       shelter_address: form.value.street,
       shelter_address_city: form.value.city,
       shelter_address_state: form.value.state,
@@ -51,7 +51,7 @@ export class SignupComponent implements OnInit {
       shelter_email: form.value.email,
       shelter_zipCode: form.value.zipCode
     };
-    this.loginService.signup(form.value.username, form.value.email, form.value.password)
+    this.loginService.signup(data)
       .subscribe((signupResponse) => {
         this.isSubmitting = false;
 
