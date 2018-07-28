@@ -19,9 +19,9 @@ export class LoginService {
   }
 
   signup(signupData: object) {
+    console.log(signupData)
     const signupUrl: string = `${this.baseUrl}/signup`;
-    let params = new HttpParams();
-    return this.http.get(signupUrl, { params });
+    return this.http.post(signupUrl, { signupData });
   }
 
   isLoggedIn() {

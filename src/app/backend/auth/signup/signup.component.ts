@@ -40,6 +40,7 @@ export class SignupComponent implements OnInit {
   }
 
   submitForm(form) {
+    console.log(form)
     this.isSubmitting = true;
     const data = {
       shelter_name: form.value.username,
