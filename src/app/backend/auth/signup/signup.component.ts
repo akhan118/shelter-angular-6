@@ -3,6 +3,7 @@ import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/fo
 import { Router } from '@angular/router';
 
 import { LoginService } from '@appCore/services/login.service';
+import { signUpShelterService } from '@appCore/services/signupshelter.service';
 import { UserDetailsService } from '@appCore/services/user-details.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
+    private signUpShelterService: signUpShelterService,
     private router: Router,
     private userDetails: UserDetailsService
   ) { }
@@ -52,8 +54,9 @@ export class SignupComponent implements OnInit {
       shelter_email: form.value.email,
       shelter_zipCode: form.value.zipCode
     };
-    this.loginService.signup(data)
+    this.signUpShelterService.signUpShelter(data)
       .subscribe((signupResponse) => {
+        console.log(signupResponse);
         this.isSubmitting = false;
 
         this.router.navigate(['/backend/login'], {
