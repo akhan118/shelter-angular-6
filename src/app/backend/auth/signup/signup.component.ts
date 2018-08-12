@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit {
 
   createSignupForm() {
     this.signupForm = this.fb.group({
+      shelterName: ['', Validators.required ],
       username: ['', Validators.required ],
       password:['', Validators.required ],
       street: ['', Validators.required ],
@@ -37,23 +38,41 @@ export class SignupComponent implements OnInit {
       zipCode: ['', Validators.required ],
       phone: ['', Validators.required ],
       county: ['', Validators.required ],
-      email: ['', Validators.required ]
+      email: ['', Validators.required ],
+      EIN: ['', Validators.required ]
     });
   }
 
   submitForm(form) {
     console.log(form)
     this.isSubmitting = true;
+    // const data = {
+    //   shelter_name:form.value.shelterName,
+    //   shelter_address: form.value.street,
+    //   shelter_address_city: form.value.city,
+    //   shelter_address_state: form.value.state,
+    //   shelter_address_zip: form.value.zipCode,
+    //   shelter_phone: form.value.phone,
+    //   shelter_county: form.value.county,
+    //   shelter_EIN: form.value.EIN,
+    //   shelter_email: form.value.email,
+    //   username: form.value.username,
+
+    // };   
     const data = {
-      shelter_name: form.value.username,
-      shelter_address: form.value.street,
-      shelter_address_city: form.value.city,
-      shelter_address_state: form.value.state,
-      shelter_phone: form.value.phone,
-      shelter_county: form.value.county,
-      shelter_email: form.value.email,
-      shelter_zipCode: form.value.zipCode
+      shelter_name: 'test2',
+      // shelter_address:'888 test',
+      // shelter_address_city: 'Detroit',
+      // shelter_address_state: 'Michigan',
+      // shelter_address_zip: '33333',
+      // shelter_phone: '23423432',
+      // shelter_EIN: '2343243',
+      shelter_email: 'test2@test.com',
+      // shelter_county:'wayne',
+      username:'kiki2'
     };
+    
+    console.log(data)
     this.signUpShelterService.signUpShelter(data)
       .subscribe((signupResponse) => {
         console.log(signupResponse);
