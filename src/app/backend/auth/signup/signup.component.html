@@ -4,6 +4,12 @@
   </mat-card-title>
   <mat-card-content>
     <form class="form" [formGroup]="signupForm" (ngSubmit)="submitForm(signupForm)">
+        <mat-form-field class="form__field">
+            <input matInput class="form__input" type="text" placeholder="shelterName" formControlName="shelterName" required>
+            <mat-error *ngIf="signupForm.controls.shelterName.invalid">
+             Shelter Name is required.
+            </mat-error>
+          </mat-form-field>
       <mat-form-field class="form__field">
         <input matInput class="form__input" type="text" placeholder="username" formControlName="username" required>
         <mat-error *ngIf="signupForm.controls.username.invalid">
@@ -22,7 +28,7 @@
           Email is required.
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="form__field">
+      <!-- <mat-form-field class="form__field">
         <input matInput class="form__input" type="text" placeholder="street" formControlName="street" required>
         <mat-error *ngIf="signupForm.controls.street.invalid">
           Street is required.
@@ -58,7 +64,13 @@
           County is required.
         </mat-error>
       </mat-form-field>
-      <button mat-button class="button bg-cranberry" type="submit" [disabled]="signupForm.invalid || isSubmitting">
+      <mat-form-field class="form__field">
+          <input matInput class="form__input" type="text" placeholder="EIN" formControlName="EIN" required>
+          <mat-error *ngIf="signupForm.controls.EIN.invalid">
+            EIN is required.
+          </mat-error>
+        </mat-form-field> -->
+      <button mat-button class="button bg-cranberry" type="submit" >
         <mat-error class="button__content" [class.animate-up]="isSubmitting">
           <span class="button__text">Sign Up</span>
           <span class="button__loading">

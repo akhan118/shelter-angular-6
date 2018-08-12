@@ -38,9 +38,8 @@ export class ShelterService {
     return this.http.get('./availability');
   }
 
-  signupShelters(param) {
-    // let shelterUrl: string= this.baseUrl + '/'
-    // return this.http.get(shelterUrl);
+  signup(param) {
+    console.log(param)
     const params = new HttpParams()
       .set('name', param.shelter_name)
       .set('address', param.shelter_address)
@@ -48,13 +47,13 @@ export class ShelterService {
       .set('state', param.shelter_address_state)
       .set('phone', param.shelter_phone);
 
-    return this.http.post(this.baseUrl + '/signupshelter', 0, {
-      headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.userDetails.accessToken),
-      params: params,
-    });
+    // return this.http.post(this.baseUrl + '/signupshelter', 0, {
+    //   headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.userDetails.accessToken),
+    //   params: params,
+    // });
   }
 
-
+  
 
 
 }

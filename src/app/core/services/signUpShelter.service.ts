@@ -5,16 +5,17 @@ import { catchError } from 'rxjs/operators';
 import { UserDetailsService } from '@appCore/services/user-details.service';
 
 @Injectable()
-export class LoginService {
+export class signUpShelterService {
   private baseUrl: string = 'http://alphard.us/v1/api';
 
   constructor(private http: HttpClient, private userDetails: UserDetailsService) { }
-
-  login(username: string, password: string) {
-    const loginUrl: string = `${this.baseUrl}/login`;
+ 
+  signUpShelter(data:any) {
+    console.log(data)
+    const loginUrl: string = `${this.baseUrl}/signupshelter`;
     let params = new HttpParams();
-    params = params.append('username', username);
-    params = params.append('password', password);
+    params = params.append('username', data);
+    // params = params.append('password', password);
     return this.http.get(loginUrl, { params });
   }
 
