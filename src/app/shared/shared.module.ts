@@ -7,14 +7,12 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@appShared/material.module';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { SheltersFilterPipe } from '@appShared/shelters-filter.pipe';
 import { LoadingIconComponent } from '@appShared/loading-icon/loading-icon.component';
 import { FormatPhonePipe } from './phone.pipe';
 
 @NgModule({
   declarations: [
     FormatPhonePipe,
-    SheltersFilterPipe,
     NavbarComponent,
     FooterComponent,
     LoadingIconComponent
@@ -34,7 +32,6 @@ import { FormatPhonePipe } from './phone.pipe';
     HttpClientModule,
     RouterModule,
     MaterialModule,
-    SheltersFilterPipe,
     NavbarComponent,
     FooterComponent,
     LoadingIconComponent,

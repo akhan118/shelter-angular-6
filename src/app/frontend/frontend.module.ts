@@ -9,27 +9,20 @@ import { SheltersComponent } from '@appFrontend/shelters/shelters.component';
 import { FormsModule } from '@angular/forms';
 import { FiltersComponent } from '@appFrontend/filters/filters.component';
 
-
-
 @NgModule({
-  imports: [
-    MatBottomSheetModule,
-    SharedModule,
-    FrontendRoutingModule,
-    FormsModule
-  ],
-  exports: [
-    ShelterItemComponent,
-    FiltersComponent
-  ],
-  declarations: [
-    ShelterItemComponent,
-    HomeComponent,
-    SheltersComponent,
-    FiltersComponent
-  ],
-  entryComponents: [
-    FiltersComponent
-  ]
-})
-export class FrontendModule { }
+	imports: [
+	MatBottomSheetModule,
+	SharedModule,
+	FrontendRoutingModule,
+	FormsModule
+	],
+	exports: [ShelterItemComponent, FiltersComponent],
+	declarations: [
+	ShelterItemComponent,
+	HomeComponent,
+	SheltersComponent,
+	FiltersComponent
+	],
+	entryComponents: [FiltersComponent]
+	})
+export class FrontendModule {}

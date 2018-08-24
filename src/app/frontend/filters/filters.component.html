@@ -9,10 +9,10 @@
     </div>
   </div>
   <div class="filter-row filter-row-2">
-    <p class="shelter-title">Last Updated</p>
+    <p class="shelter-title">Last Updated (minutes)</p>
     <div class="filter--types" aria-label="Last Updated Filter">
-      <button mat-button class="button" *ngFor="let slot of timeSlots" [class.selected]="slot.uiSelected">
-        <span class="button__text">{{slot.value}}</span>
+      <button mat-button class="button" *ngFor="let timeSlot of timeSlots" (click)="setLastUpdated(timeSlot)" [class.selected]="timeSlot.uiSelected">
+        <span class="button__text">{{timeSlot.value}}</span>
       </button>
     </div>
   </div>
