@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 
 import { Shelter } from 'app/models/Shelter';
+import { ShelterService } from '@appCore/services/shelter.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'sa-shelter-details',
@@ -16,7 +18,6 @@ export class ShelterDetailsComponent implements OnInit {
   // Placeholder for real data that we would
   // get from the api
   initialFormValues: object = {
-    availability: false,
     shelterType: { id: 2, name: 'Men' },
     address: '1234 Main St.',
     city: 'Detroit',
@@ -35,7 +36,7 @@ export class ShelterDetailsComponent implements OnInit {
     { id: 5, name: 'All' }
   ]
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private shelterService: ShelterService) { }
 
   ngOnInit() {
     this.createShelterForm();
@@ -52,26 +53,27 @@ export class ShelterDetailsComponent implements OnInit {
     }
   }
 
-  submitForm(form: FormGroup) {
-    // Simulate submitting form
-    console.info('submitted user info form', form);
-    setTimeout(() => {
-      this.isSubmitting = true;
-    }, 4000);
-
+  submitForm() {
+    this.isSubmitting = true;
+    const form: FormGroup['controls'] = this.shelterForm.controls;
     const data = {
-      name: form.controls.name.value,
-      EIN: form.controls.EIN.value,
-      availability: form.value.editableFields.availability,
-      address: form.value.editableFields.address,
-      city: form.value.editableFields.city,
-      state: form.value.editableFields.state,
-      phone: form.value.editableFields.phone,
-      county: form.value.editableFields.county,
-      zipCode: form.value.editableFields.zipCode
+      shelter_id: localStorage.getItem('SHELTER_ID'),
+      shelter_name: form.name.value,
+      shelter_EIN: form.EIN.value,
+      shelter_address: form.editableFields.value.address,
+      shelter_address_county: form.editableFields.value.county,
+      shelter_address_city: form.editableFields.value.city,
+      shelter_address_state: form.editableFields.value.state,
+      shelter_address_zip: form.editableFields.value.zipCode,
+      shelter_phone: form.editableFields.value.phone
     };
 
     console.log('Data', data);
+    this.shelterService.updateShelter(data).subscribe(updateResponse => {
+      console.log('FORM UPDATED!')
+    }, (error: HttpErrorResponse) => {
+      console.error('There was an error updating the shelter details.')
+    })
   }
 
   private createShelterForm() {
@@ -81,7 +83,6 @@ export class ShelterDetailsComponent implements OnInit {
       EIN: ['12345678', Validators.required],
       // Nested formGroup within the shelter form
       editableFields: this.fb.group({
-        availability: [false, Validators.required],
         shelterType: ['', Validators.required],
         address: ['', Validators.required],
         city: ['', Validators.required],

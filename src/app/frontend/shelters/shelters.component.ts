@@ -13,6 +13,7 @@ import { FiltersComponent } from '@appFrontend/filters/filters.component';
 	styleUrls: ['./shelters.component.css'],
 })
 export class SheltersComponent implements OnInit {
+	errorMsg: string;
 	filterValue: string = '';
 	isLoading: boolean = false;
 	typeName: string = '';
@@ -29,7 +30,7 @@ export class SheltersComponent implements OnInit {
 	}
 
 	getShelterType() {
-		this.shelterTypeService.value$.subscribe((value) => {
+		this.shelterTypeService.value$.subscribe((value: string) => {
 			const typeId: number = ShelterType[value.toLocaleUpperCase()];
 
 			// Call the getShelter function passing in the typeId value
@@ -44,16 +45,17 @@ export class SheltersComponent implements OnInit {
 				let allShelters: Shelter[] = shelters;
 				if (shelterTypeId !== 5) {
 					setTimeout(() => {
-						this.isLoading = false;
 						this.shelters = allShelters.filter(shelter => shelter.shelter_type.id === shelterTypeId);
+						this.isLoading = false;
 					}, 300)
 					return;
 				}
-				this.isLoading = false;
 				this.shelters = allShelters;
-			}, (error) => {
 				this.isLoading = false;
-				console.error('Error getting shelters:', error)
+			}, (error) => {
+				console.error('Error getting shelters.', error);
+				this.errorMsg = 'There was an error getting shelters. Refresh the page and try again.';
+				this.isLoading = false;
 			});
 	}
 

@@ -5,6 +5,12 @@
   <mat-card-content>
     <form class="form" [formGroup]="signupForm" (ngSubmit)="submitForm(signupForm)">
       <mat-form-field class="form__field">
+        <input matInput class="form__input" type="text" placeholder="shelter name" formControlName="shelterName" required>
+        <mat-error *ngIf="signupForm.controls.shelterName.invalid">
+          Shelter Name is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form__field">
         <input matInput class="form__input" type="text" placeholder="username" formControlName="username" required>
         <mat-error *ngIf="signupForm.controls.username.invalid">
           Name is required.
@@ -22,51 +28,17 @@
           Email is required.
         </mat-error>
       </mat-form-field>
-      <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="street" formControlName="street" required>
-        <mat-error *ngIf="signupForm.controls.street.invalid">
-          Street is required.
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="city" formControlName="city" required>
-        <mat-error *ngIf="signupForm.controls.city.invalid">
-          City is required.
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="state" formControlName="state" required>
-        <mat-error *ngIf="signupForm.controls.state.invalid">
-          State is required.
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="form__field">
-        <input matInput class="form__input" type="number" placeholder="zipCode" formControlName="zipCode" required>
-        <mat-error *ngIf="signupForm.controls.zipCode.invalid">
-          ZipCode is required.
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="form__field">
-        <input matInput class="form__input" type="tel" placeholder="phone" formControlName="phone" required>
-        <mat-error *ngIf="signupForm.controls.phone.invalid">
-          Phone is required.
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="county" formControlName="county" required>
-        <mat-error *ngIf="signupForm.controls.county.invalid">
-          County is required.
-        </mat-error>
-      </mat-form-field>
-      <button mat-button class="button bg-cranberry" type="submit" [disabled]="signupForm.invalid || isSubmitting">
+      <mat-error class="error-msg" *ngIf="errorMsg">{{errorMsg}}</mat-error>
+      <button mat-button class="button button--login bg-cranberry" type="submit">
         <mat-error class="button__content" [class.animate-up]="isSubmitting">
           <span class="button__text">Sign Up</span>
           <span class="button__loading">
-            <sa-loading-icon></sa-loading-icon>
+            <sa-loading-icon [iconColor]="'#fff'"></sa-loading-icon>
           </span>
         </mat-error>
       </button>
     </form>
+    <div class="divider"></div>
     <mat-error class="mat-errorider"></mat-error>
     <a class="color-cranberry auth-link" [routerLink]="['/backend/login']">Login</a>
   </mat-card-content>

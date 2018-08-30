@@ -22,28 +22,16 @@ export class LoginService {
       );
   }
 
-  signup(shelterData): Observable<any> {
-    const headers = new HttpHeaders()
-      .set('Authorization', `Bearer${this.userDetails.accessToken}`);
-
-    const params = new HttpParams()
-      .set('shelter_user', shelterData.name)
-      .set('shelter_address_street', shelterData.address)
-      .set('shelter_address_city', shelterData.city)
-      .set('shelter_address_state', shelterData.state)
-      .set('shelter_zip', shelterData.zip)
-      .set('shelter_county', shelterData.county)
-      .set('shelter_phone', shelterData.phone);
-
-    return this.http.post(this.baseUrl + '/signupshelter', { headers, params })
-      .pipe(
-        catchError((error) => this.handleHttpError(error))
-      );;
+  signup(signupData: object) {
+    console.log(signupData)
+    const signupUrl: string = `${this.baseUrl}/signup`;
+    return this.http.post(signupUrl, { signupData });
   }
 
   isLoggedIn(): boolean {
     let loggedInStatus: boolean = false;
-    if (this.userDetails.accessToken) {
+    const accessToken = localStorage.getItem('ACCESS_TOKEN');
+    if (accessToken) {
       loggedInStatus = true;
     }
     return loggedInStatus;

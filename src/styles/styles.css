@@ -153,10 +153,6 @@ Buttons
   line-height: 1;
 }
 
-.button--login.mat-button {
-  margin-top: 40px;
-}
-
 .button.mat-button:disabled {
   opacity: 0.8;
 }
@@ -211,6 +207,21 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0 auto;
 }
 
+.form__group {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.form__group .form__field {
+  flex: 1;
+}
+
+.form__group .form__field:nth-of-type(2n),
+.form__group .form__field:last-of-type {
+  margin-left: 30px;
+}
+
 .form__field {
   width: 100%;
   margin-top: 20px;
@@ -244,7 +255,7 @@ Cards
 
 ******************************/
 .mat-card {
-  max-height: 80vh;
+  height: auto;
   overflow-x: hidden;
   overflow-y: auto;
 }

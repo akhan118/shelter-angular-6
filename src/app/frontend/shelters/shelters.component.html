@@ -7,7 +7,7 @@
     <sa-shelter-item *ngFor="let shelter of shelters | sheltersFilter:filterValue" [ShelterData]="shelter"></sa-shelter-item>
   </ul>
   <div *ngIf="!shelters.length && !isLoading && !errorMsg">
-    There are no shelters available for the type {{this.typeName}}
+    No shelters found
   </div>
   <div class="error-msg" *ngIf="errorMsg">
     {{this.errorMsg}}
