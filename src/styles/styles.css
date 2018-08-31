@@ -2,14 +2,17 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 :root {
-  font-size: 1.2rem;
   --bluejean-blue: rgba(11, 57, 84, 1);
-  --cloudy-blue: rgba(37, 206, 209, 1);
+  --sky-blue: rgba(216, 226, 232, 1);
   --cranberry: rgba(120, 1, 22, 1);
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  font-size: 14px !important;
 }
 
 html,
@@ -34,20 +37,24 @@ h4 {
   margin: 25px 0px;
 }
 
-h1 {
-  font-size: 5rem;
+p {
+  margin: 0px;
 }
 
-h2 {
-  font-size: 4.5rem;
+.font-size-xs {
+  font-size: 0.8rem;
 }
 
-h3 {
-  font-size: 4rem;
+.font-size-sm {
+  font-size: 1.2rem;
 }
 
-h4 {
-  font-size: 3.5rem;
+.font-size-md {
+  font-size: 1.6rem;
+}
+
+.font-size-lg {
+ font-size: 1.8rem; 
 }
 
 /******************************
@@ -57,7 +64,7 @@ Colors
 ******************************/
 .color-cloudy {
   color: rgba(37, 206, 209, 1);
-  color: var(--cloudy-blue);
+  color: var(--sky-blue);
 }
 
 .color-bluejean {
@@ -72,7 +79,7 @@ Colors
 
 .bg-cloudy {
   background-color: rgba(37, 206, 209, 1);
-  background-color: var(--cloudy-blue);
+  background-color: var(--sky-blue);
 }
 
 .bg-bluejean {
@@ -189,7 +196,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .form-title__text {
-  font-size: 2rem;
+  margin: 10px 0px;
   text-align: center;
 }
 
@@ -200,11 +207,32 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0 auto;
 }
 
+.form__group {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.form__group .form__field {
+  flex: 1;
+}
+
+.form__group .form__field:nth-of-type(2n),
+.form__group .form__field:last-of-type {
+  margin-left: 30px;
+}
+
 .form__field {
   width: 100%;
+  margin-top: 20px;
+}
+
+.form-field:first-of-type {
+  margin-top: 0px;
 }
 
 .form__input {
+  font-size: 1.2rem;
 }
 
 .divider {
@@ -218,9 +246,7 @@ input[type='number']::-webkit-outer-spin-button {
 .auth-link {
   width: 100%;
   display: block;
-  padding: 15px 0px;
   text-align: center;
-  font-size: 1.4rem;
 }
 
 /******************************
@@ -228,6 +254,11 @@ input[type='number']::-webkit-outer-spin-button {
 Cards
 
 ******************************/
+.mat-card {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .card--section {
   max-width: 550px;
 }

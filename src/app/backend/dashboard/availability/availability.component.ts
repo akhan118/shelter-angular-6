@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 import { ShelterService } from '@appCore/services/shelter.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'sa-availability',
@@ -9,48 +10,26 @@ import { ShelterService } from '@appCore/services/shelter.service';
   styleUrls: ['./availability.component.css']
 })
 export class AvailabilityComponent implements OnInit {
-  public availableInput: FormControl = new FormControl();
-  public occupiedInput: FormControl = new FormControl({
-    value: 8,
-    disabled: true
-  });
-  public totalInput: FormControl = new FormControl({
-    value: 15,
-    disabled: true
-  });
+  availability: FormControl = new FormControl();
+  lastUpdated: string = formatDate(Date.now(), 'short', 'en-US');
 
-  private available: number = 0;
-  private originalValue: number = 0;
-
-  constructor(private shelterService: ShelterService) {}
+  constructor(private shelterService: ShelterService) { }
 
   ngOnInit() {
-    this.available = this.totalInput.value - this.occupiedInput.value;
-    this.availableInput.setValue(this.available);
-    this.availableInput.disable();
+    this.updateTime();
   }
 
-  enableEdit(inputField: FormControl) {
-    this.originalValue = inputField.value;
-    inputField.enable();
+  set inputValue(val: boolean) {
+    this.availability.patchValue({ value: val });
   }
 
-  cancelEdit(inputField: FormControl) {
-    inputField.setValue(this.originalValue);
-    inputField.disable();
+  get inputValue(): boolean {
+    return this.availability.value;
   }
 
-  updateAvailableValue() {
-    let occupiedValue: number = 0;
-    occupiedValue = this.totalInput.value - this.availableInput.value;
-    this.occupiedInput.setValue(occupiedValue);
-    this.availableInput.disable();
-  }
-
-  updateOccupiedValue() {
-    let availableValue: number = 0;
-    availableValue = this.totalInput.value - this.occupiedInput.value;
-    this.availableInput.setValue(availableValue);
-    this.occupiedInput.disable();
+  private updateTime() {
+    this.availability.valueChanges.subscribe(val => {
+      this.lastUpdated = formatDate(Date.now(), 'short', 'en-US');
+    });
   }
 }

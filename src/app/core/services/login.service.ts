@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 
 import { UserDetailsService } from '@appCore/services/user-details.service';
 
@@ -15,7 +16,10 @@ export class LoginService {
     let params = new HttpParams();
     params = params.append('username', username);
     params = params.append('password', password);
-    return this.http.get(loginUrl, { params });
+    return this.http.get<any>(loginUrl, { params })
+      .pipe(
+        catchError((error) => this.handleHttpError(error))
+      );
   }
 
   signup(signupData: object) {
@@ -24,12 +28,17 @@ export class LoginService {
     return this.http.post(signupUrl, { signupData });
   }
 
-  isLoggedIn() {
+  isLoggedIn(): boolean {
     let loggedInStatus: boolean = false;
-    if (this.userDetails.accessToken) {
+    const accessToken = localStorage.getItem('ACCESS_TOKEN');
+    if (accessToken) {
       loggedInStatus = true;
     }
-    console.log('logged IN', loggedInStatus);
     return loggedInStatus;
   }
+
+  private handleHttpError(error: HttpErrorResponse): Observable<HttpErrorResponse> {
+    return throwError(error);
+  }
 }
+

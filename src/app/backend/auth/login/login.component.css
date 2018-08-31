@@ -17,3 +17,11 @@
 .login-link {
   margin-top: 10px;
 }
+
+.button--login.mat-button {
+  margin-top: 10px;
+}
+
+.error-msg {
+  text-align: center;
+}

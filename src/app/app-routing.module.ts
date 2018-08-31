@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UrlErrorComponent } from 'app/404/url-error.component';
+import { UrlErrorComponent } from './404/url-error.component';
 
 const appRoutes: Routes = [
   {
@@ -18,4 +18,4 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

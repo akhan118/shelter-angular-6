@@ -6,20 +6,27 @@
     <form class="form" [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)">
       <mat-form-field class="form__field">
         <input matInput class="form__input" type="text" placeholder="Username" formControlName="username" required>
+        <mat-error *ngIf="loginForm.controls.username.invalid">
+          <p>Username is invalid</p>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="form__field">
         <input matInput class="form__input" type="password" placeholder="Password" formControlName="password" required>
+        <mat-error *ngIf="loginForm.controls.password.invalid">
+          <p>Password is invalid</p>
+        </mat-error>
       </mat-form-field>
-      <button mat-button class="button bg-cranberry" type="submit" [disabled]="loginForm.invalid || isSubmitting">
+      <mat-error class="error-msg" *ngIf="errorMsg">{{errorMsg}}</mat-error>
+      <button mat-button class="button button--login bg-cranberry" type="submit" [disabled]="loginForm.invalid || isSubmitting">
         <div class="button__content" [class.animate-up]="isSubmitting">
           <span class="button__text">Log In</span>
           <span class="button__loading">
-            <sa-loading-icon></sa-loading-icon>
+            <sa-loading-icon [iconColor]="'#fff'"></sa-loading-icon>
           </span>
         </div>
       </button>
     </form>
     <div class="divider"></div>
-    <a class="color-cranberry auth-link" [routerLink]="['/backend/signup']">Signup</a>
+    <a class="color-cranberry auth-link font-size-sm" [routerLink]="['/backend/signup']">Signup</a>
   </mat-card-content>
 </mat-card>

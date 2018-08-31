@@ -41,6 +41,7 @@ Thumbs.db
 package-lock.json
 *.txt
 tslint.json
+.eslintrc.json
 .editorconfig
 src/tslint.json
 src/test.ts

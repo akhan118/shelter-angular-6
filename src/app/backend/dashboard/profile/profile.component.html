@@ -1,6 +1,6 @@
 <div class="page-title">
   <div class="page-title__background"></div>
-  <h1 class="page-title__text">User Profile</h1>
+  <h2 class="page-title__text">User Profile</h2>
 </div>
 
 <section class="admin-section">
@@ -15,10 +15,7 @@
     </div>
     <form class="form form--profile" [formGroup]="userInfoForm" (ngSubmit)="submitForm(userInfoForm)">
       <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="First Name" formControlName="firstName" required>
-      </mat-form-field>
-      <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="Last Name" formControlName="lastName" [class.input--disabled]="!editing"
+        <input matInput class="form__input" type="text" placeholder="Username" formControlName="username" [class.input--disabled]="!editing"
           required>
       </mat-form-field>
       <mat-form-field class="form__field">
@@ -29,10 +26,6 @@
         <input matInput class="form__input" type="password" placeholder="Password" formControlName="password" [class.input--disabled]="!editing"
           required>
       </mat-form-field>
-      <mat-form-field class="form__field">
-        <input matInput class="form__input" type="text" placeholder="Organization" formControlName="organization" [class.input--disabled]="!editing"
-          required>
-      </mat-form-field>
       <button mat-button class="button button--update bg-cranberry" type="submit" [disabled]="userInfoForm.invalid || isSubmitting"
         *ngIf="editing">
         <span class="button__text">Update Profile</span>
@@ -40,27 +33,3 @@
     </form>
   </mat-card>
 </section>
-<!-- <section class="settings">
-  <div class="settings__title">Organization</div>
-  <mat-card class="settings__card">
-    <form class="form profile" [formGroup]="organizationForm" (ngSubmit)="submitForm(organizationForm)">
-      <label class="form-group">
-        <input class="form-input" type="number" placeholder="EIN" formControlName="EIN" [readonly]="!editing" [class.input--disabled]="!editing">
-      </label>
-      <ng-container formGroupName="address">
-        <label class="form-group">
-          <label class="form-label">Street</label>
-          <input class="form-input" type="text" placeholder="Street" formControlName="street" [readonly]="!editing" [class.input--disabled]="!editing">
-        </label>
-        <label class="form-group">
-          <label class="form-label">Zip</label>
-          <input class="form-input" type="number" placeholder="Zip" formControlName="zip" [readonly]="!editing" [class.input--disabled]="!editing">
-        </label>
-      </ng-container>
-      <label class="form-group">
-        <label class="form-label">Phone Number</label>
-        <input class="form-input" type="tel" placeholder="Phone Number" formControlName="phoneNumber" [readonly]="!editing" [class.input--disabled]="!editing">
-      </label>
-    </form>
-  </mat-card>
-</section> -->

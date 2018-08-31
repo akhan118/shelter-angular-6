@@ -1,80 +1,44 @@
-
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { MatBottomSheet } from '@angular/material';
 
-import { Observable } from 'rxjs';
-import { ShelterService } from '@appCore/services/shelter.service';
-import { ShelterType } from 'app/models/ShelterType';
-
-export class Shelter extends Object {
-    id: number;
-    name: string;
-    EIN: number;
-    address: {
-        street: string;
-        zip: number;
-    }
-    phoneNumber: number;
-    personType: [{
-        id: number,
-        name: 'WOMAN' | 'MEN' | 'YOUTH' | 'FAMILY' | 'ALL';
-    }]
-}
+import { Shelter } from '../../models/Shelter';
+import { FiltersComponent } from '@appFrontend/filters/filters.component';
+import { FilterService } from '@appCore/services/filter.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-    selector: 'shelters',
-    templateUrl: 'shelters.component.html',
-    styleUrls: ['./shelters.component.css']
-})
-
+	selector: 'sa-shelters',
+	templateUrl: 'shelters.component.html',
+	styleUrls: ['./shelters.component.css']
+	})
 export class SheltersComponent implements OnInit {
-    filterValue: string = '';
-    isLoading: boolean = false;
-    typeKey: string = '';
-    shelters: Shelter[] = [];
+	errorMsg: string = null;
+	isLoading: boolean = false;
+	shelters: Shelter[] = [];
 
-    constructor(
-        private _activated: ActivatedRoute,
-        private _shelterService: ShelterService
-    ) { }
+	constructor(
+		private bottomSheet: MatBottomSheet,
+		private filterService: FilterService
+	) {}
 
-    ngOnInit() {
-        this.getShelterType();
-    }
+	ngOnInit() {
+		this.getShelters();
+	}
 
-    /**
-     * Parses the current url to get the shelterType value
-     * from the filter parameter
-     */
-    getShelterType() {
-        this._activated.queryParams.subscribe((params) => {
+	getShelters() {
+		this.isLoading = true;
+		this.filterService.getShelters();
+		this.filterService.shelters$.subscribe((shelters: Shelter[]) => {
+			this.isLoading = false;
+			this.shelters = shelters;
+		});
+		this.filterService.error$.subscribe((error: HttpErrorResponse) => {
+			this.isLoading = false;
+			this.errorMsg = 'Error getting shelters. Reload the page and try again.';
+		});
+	}
 
-            // Passes the filter parameter into typeKey variable
-            this.typeKey = params['filter'];
-
-            /**
-             * Checks if the typeKey variable is valid if it's
-             * not we run the getShelters method without an arguement
-             * passed in
-             */
-            if (!this.typeKey) {
-                this.getShelters();
-                return;
-            };
-            const typeValue: number = ShelterType[this.typeKey.toLocaleUpperCase()];
-            this.getShelters(typeValue);
-        });
-    }
-
-    getShelters(shelterType: number = 5) {
-        this.isLoading = true;
-        this._shelterService.getShelters(shelterType)
-            .subscribe((shelters: Shelter[]) => {
-                this.isLoading = false;
-                this.shelters = shelters
-            }, (error) => {
-                this.isLoading = false;
-                console.error('Error getting shelters', error)
-            });
-    }
+	showFilters() {
+		this.bottomSheet.open(FiltersComponent);
+	}
 }

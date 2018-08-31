@@ -2,15 +2,19 @@
   <mat-nav-list class="nav__items">
     <mat-list-item class="nav__item" [routerLink]="['home']" (click)="closeSidenav()">
       <mat-icon mat-list-icon class="nav__icon">home</mat-icon>
-      <p mat-line class="nav__text">Home</p>
+      <p mat-line class="nav__text font-size-sm">Home</p>
     </mat-list-item>
     <mat-list-item class="nav__item" [routerLink]="['profile']" (click)="closeSidenav()">
       <mat-icon mat-list-icon class="nav__icon">perm_identity</mat-icon>
-      <p mat-line class="nav__text">User Profile</p>
+      <p mat-line class="nav__text font-size-sm">User Profile</p>
+    </mat-list-item>
+    <mat-list-item class="nav__item" [routerLink]="['shelter-details']" (click)="closeSidenav()">
+      <mat-icon mat-list-icon class="nav__icon">home</mat-icon>
+      <p mat-line class="nav__text font-size-sm">Shelter</p>
     </mat-list-item>
     <mat-list-item class="nav__item" [routerLink]="['settings']" (click)="closeSidenav()">
       <mat-icon mat-list-icon class="nav__icon">settings</mat-icon>
-      <p mat-line class="nav__text">Settings</p>
+      <p mat-line class="nav__text font-size-sm">Settings</p>
     </mat-list-item>
   </mat-nav-list>
 </nav>

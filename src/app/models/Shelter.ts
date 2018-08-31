@@ -1,14 +1,16 @@
 export class Shelter extends Object {
-  id: number;
-  name: string;
-  EIN: number;
-  address: {
-    street: string;
-    zip: number;
-  }
-  phoneNumber: number;
-  type: [{
-    id: number,
-    name: 'WOMAN' | 'MEN' | 'YOUTH' | 'FAMILY' | 'ALL';
-  }]
+	id: number;
+	shelter_name: string;
+	shelter_address: string;
+	shelter_address_street: string;
+	shelter_address_zip: number;
+	shelter_address_city: string;
+	shelter_address_state: string;
+	available: number;
+	shelter_phone: number;
+	shelter_type: {
+		id: number;
+		name: 'Woman' | 'Men' | 'Youth' | 'Family' | 'All';
+	};
+	last_updated: number;
 }

@@ -4,17 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { MaterialModule } from './material.module';
-import { NavbarComponent } from 'app/navbar/navbar.component';
-import { FooterComponent } from 'app/footer/footer.component';
-import { SheltersFilterPipe } from './shelters-filter.pipe';
-import { LoadingIconComponent } from './loading-icon/loading-icon.component';
+import { MaterialModule } from '@appShared/material.module';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
+import { LoadingIconComponent } from '@appShared/loading-icon/loading-icon.component';
+import { FormatPhonePipe } from './phone.pipe';
 
 @NgModule({
   declarations: [
-    SheltersFilterPipe, 
-    NavbarComponent, 
-    FooterComponent, 
+    FormatPhonePipe,
+    NavbarComponent,
+    FooterComponent,
     LoadingIconComponent
   ],
   imports: [
@@ -32,10 +32,10 @@ import { LoadingIconComponent } from './loading-icon/loading-icon.component';
     HttpClientModule,
     RouterModule,
     MaterialModule,
-    SheltersFilterPipe,
     NavbarComponent,
     FooterComponent,
-    LoadingIconComponent
+    LoadingIconComponent,
+    FormatPhonePipe
   ]
 })
-export class SharedModule {}
+export class SharedModule { }

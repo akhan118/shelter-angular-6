@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { LoginService } from '@appCore/services/login.service';
 import { UserDetailsService } from '@appCore/services/user-details.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'sa-login',
@@ -11,6 +13,7 @@ import { UserDetailsService } from '@appCore/services/user-details.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  errorMsg: string = null;
   isSubmitting: boolean = false;
   loginForm: FormGroup;
 
@@ -35,16 +38,22 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(form) {
+    this.errorMsg = null;
     this.isSubmitting = true;
     this.loginService.login(form.value.username, form.value.password)
       .subscribe((loginResponse) => {
-        this.userDetails.accessToken = loginResponse['access_token'];
-        this.userDetails.username = loginResponse['username'];
+        if (loginResponse['Authentication'] === false) {
+          this.isSubmitting = false;
+          this.errorMsg = 'There was an error logging in. Please try again.';
+          return;
+        }
+        localStorage.setItem('ACCESS_TOKEN', loginResponse['access_token']);
+        localStorage.setItem('USERNAME', loginResponse['username'])
         this.router.navigate(['/backend/dashboard']);
       },
         (error) => {
           this.isSubmitting = false;
-          console.error('Error signing up:', error);
+          console.error('Error signing up.', error);
         });
   }
 

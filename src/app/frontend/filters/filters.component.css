@@ -1,0 +1,65 @@
+:host {
+  min-width: 600px;
+  min-height: 700px;
+}
+
+.container-title {
+  padding-top: 15px;
+  padding-bottom: 50px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.shelter-title {
+  margin-bottom: 12px;
+}
+
+.filter--types .button {
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  border: 1px solid rgba(11, 57, 84, 1);
+  border: 1px solid var(--bluejean-blue);
+}
+
+.filter--types .button.selected {
+  background-color: rgba(11, 57, 84, 1);
+  background-color: var(--bluejean-blue);
+}
+
+.filter--types .button.selected .button__text {
+  color: #fff;
+}
+
+.filter--types .button__text {
+  color: rgba(11, 57, 84, 1);
+  color: var(--bluejean-blue);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.filter--distance {
+  min-width: 315px;
+  width: 35%;
+}
+
+.button--apply {
+  width: 40%;
+  max-width: 324px;
+  min-height: 40px;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px auto;
+  color: #fff;
+}

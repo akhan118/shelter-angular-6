@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
 
 import { SharedModule } from '@appShared/shared.module';
-import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
+import { DashboardRoutingModule } from '@appBackend/dashboard/dashboard-routing.module';
 
-import { HomeComponent } from '../dashboard/home/home.component';
-import { AvailabilityComponent } from '../dashboard/availability/availability.component';
-import { SettingsComponent } from '../dashboard/settings/settings.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { ProfileComponent } from './profile/profile.component';
-import { AdminSideNavComponent } from './admin-sidenav/admin-sidenav.component';
-import { AdminHeaderComponent } from './admin-header/admin-header.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminSideNavComponent } from '@appBackend/dashboard/admin-sidenav/admin-sidenav.component';
+import { AdminHeaderComponent } from '@appBackend/dashboard/admin-header/admin-header.component';
+import { AdminDashboardComponent } from '@appBackend/dashboard/admin-dashboard/admin-dashboard.component';
+import { AvailabilityComponent } from '@appBackend/dashboard/availability/availability.component';
+import { DashboardComponent } from '@appBackend/dashboard/dashboard.component';
+import { HomeComponent } from '@appBackend/dashboard/home/home.component';
+import { ProfileComponent } from '@appBackend/dashboard/profile/profile.component';
+import { ShelterDetailsComponent } from '@appBackend/dashboard/shelter-details/shelter-details.component';
+import { SettingsComponent } from '@appBackend/dashboard/settings/settings.component';
 
 
 @NgModule({
@@ -21,14 +22,15 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     LayoutModule,
   ],
   declarations: [
-    HomeComponent,
-    AvailabilityComponent,
-    DashboardComponent,
-    SettingsComponent,
-    ProfileComponent,
     AdminSideNavComponent,
     AdminHeaderComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AvailabilityComponent,
+    DashboardComponent,
+    HomeComponent,
+    ProfileComponent,
+    ShelterDetailsComponent,
+    SettingsComponent,
   ]
 })
-export class DashboardModule {}
+export class DashboardModule { }

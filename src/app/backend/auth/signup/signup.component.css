@@ -6,3 +6,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.button--login.mat-button {
+  margin-top: 10px;
+}
+
+.error-msg {
+  text-align: center;
+}

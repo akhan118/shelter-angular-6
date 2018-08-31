@@ -1,8 +1,108 @@
-.shelter-item {
+p {
+  margin: 0px;
+}
+
+.shelter-card {
   width: 60%;
   max-width: 600px;
-  background-color: #e3e3e3;
+  background-color: var(--sky-blue);
+  background-color: rgba(216, 226, 232, 1);
   margin: 20px auto;
   padding: 15px 30px;
-  line-height: 0.5;
+  line-height: 1.5;
+}
+
+.card-row-1 {
+  align-items: center;
+}
+
+.card-row-1 > div {
+  margin: 0px;
+}
+
+.shelter-name {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 1;
+}
+
+.shelter-type {
+  width: 70px;
+  font-weight: 600;
+}
+
+.shelter-type.mat-card-subtitle {
+  margin-top: 0px;
+}
+
+.shelter-beds {
+  font-weight: 600;
+}
+
+.shelter-beds.no-beds {
+  color: red;
+}
+
+.shelter-location {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.button--phone {
+  display: block;
+  margin-top: 15px;
+  padding: 0px;
+  color: #fff;
+  border: 1px solid rgba(11, 57, 84, 1);
+  border: 1px solid var(--bluejean-blue);
+}
+
+.shelter-phone {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .button--phone {
+    display: none;
+  }
+
+  .shelter-phone {
+    display: block;
+  }
+}
+
+.button--phone .button__content {
+  background-color: rgba(11, 57, 84, 1);
+  background-color: var(--bluejean-blue);
+}
+
+.phone-link {
+  display: flex;
+  color: #fff;
+  text-decoration: none;
+}
+
+.mat-icon-phone.mat-icon {
+  fill: currentColor;
+}
+
+.card-row-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-row-3 .mat-card-actions {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+@media (min-width: 701px) {
+  .card-row-3 {
+    flex-direction: row;
+    align-items: center;
+  }
 }

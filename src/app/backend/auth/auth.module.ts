@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '@appShared/shared.module';
 import { AuthRoutingModule } from './auth-routing.module';
-import { signUpShelterService } from '@appCore/services/signUpShelter.service';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -16,10 +15,6 @@ import { SignupComponent } from './signup/signup.component';
     AuthComponent,
     LoginComponent,
     SignupComponent
-  ]
- ,
-  providers: [
-    signUpShelterService,
   ]
 })
 export class AuthModule { }

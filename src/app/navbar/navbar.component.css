@@ -1,3 +1,5 @@
+@import '../../styles/styles.css';
+
 :host {
   width: 100%;
   color: #fff;
@@ -5,13 +7,7 @@
 
 header {
   width: 100%;
-  height: 45px;
-}
-
-.nav-menu {
-  width: 100%;
-  height: 100%;
-  background-color: green;
+  height: 65px;
 }
 
 .nav-items {
@@ -35,5 +31,6 @@ header {
 }
 
 .button--admin {
+  background-color: #999999;
   height: 100%;
 }
