@@ -17,8 +17,8 @@ export class FilterService {
 
 	constructor(private shelterService: ShelterService) {}
 
-	getShelters() {
-		this.shelterService.getShelters().subscribe(
+	getShelters(shelterTypeId: number = 5) {
+		this.shelterService.getShelters(shelterTypeId).subscribe(
 			(shelters: Shelter[]) => {
 				this.allShelters = shelters;
 				setTimeout(() => {
@@ -32,11 +32,11 @@ export class FilterService {
 		);
 	}
 
-	shelterType(shelter: Shelter, shelterTypeId: number) {
+	private shelterType(shelter: Shelter, shelterTypeId: number) {
 		return shelter.shelter_type.id === shelterTypeId;
 	}
 
-	updatedTime(shelter: Shelter, time: number) {
+	private updatedTime(shelter: Shelter, time: number) {
 		return shelter.last_updated === time;
 	}
 
