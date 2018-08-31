@@ -9,12 +9,12 @@ import { MenuService } from '@appCore/services/menu.service';
   styleUrls: ['./admin-header.component.css']
 })
 export class AdminHeaderComponent implements OnInit {
-  username: string = null;
+  username: string = localStorage.getItem('USERNAME');
 
   constructor(private menuService: MenuService, private userDetails: UserDetailsService) { }
 
   ngOnInit() {
-    this.username = this.userDetails.username;
+    //this.username = this.userDetails.username;
   }
 
   toggleMenu() {

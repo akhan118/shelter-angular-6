@@ -16,11 +16,12 @@
           <p>Password is invalid</p>
         </mat-error>
       </mat-form-field>
+      <mat-error class="error-msg" *ngIf="errorMsg">{{errorMsg}}</mat-error>
       <button mat-button class="button button--login bg-cranberry" type="submit" [disabled]="loginForm.invalid || isSubmitting">
         <div class="button__content" [class.animate-up]="isSubmitting">
           <span class="button__text">Log In</span>
           <span class="button__loading">
-            <sa-loading-icon [iconColor]="'#ffffff'"></sa-loading-icon>
+            <sa-loading-icon [iconColor]="'#fff'"></sa-loading-icon>
           </span>
         </div>
       </button>

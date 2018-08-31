@@ -1,17 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
 import { CoreModule } from '@appCore/core.module';
 import { BackendModule } from '@appBackend/backend.module';
 import { FrontendModule } from '@appFrontend/frontend.module';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UrlErrorComponent } from './404/url-error.component';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import { MatInputModule } from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from '@appShared/shared.module';
+import { FiltersComponent } from '@appFrontend/filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +20,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     CoreModule.forRoot(),
+    SharedModule,
     AppRoutingModule,
     BackendModule,
     FrontendModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatTableModule,
     FormsModule,
     BrowserAnimationsModule,
   ],
+  entryComponents: [FiltersComponent],
   bootstrap: [
     AppComponent
   ]
