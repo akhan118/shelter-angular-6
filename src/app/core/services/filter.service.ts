@@ -9,8 +9,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 	providedIn: 'root'
 	})
 export class FilterService {
+  private allShelters: Shelter[] = [];
 	private error = new Subject<HttpErrorResponse>();
-	private allShelters: Shelter[] = [];
 	private shelters = new Subject<Shelter[]>();
 	error$: Observable<HttpErrorResponse> = this.error.asObservable();
 	shelters$: Observable<Shelter[]> = this.shelters.asObservable();

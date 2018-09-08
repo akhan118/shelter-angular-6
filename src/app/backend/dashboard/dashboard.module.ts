@@ -14,23 +14,18 @@ import { ProfileComponent } from '@appBackend/dashboard/profile/profile.componen
 import { ShelterDetailsComponent } from '@appBackend/dashboard/shelter-details/shelter-details.component';
 import { SettingsComponent } from '@appBackend/dashboard/settings/settings.component';
 
-
 @NgModule({
-  imports: [
-    SharedModule,
-    DashboardRoutingModule,
-    LayoutModule,
-  ],
-  declarations: [
-    AdminSideNavComponent,
-    AdminHeaderComponent,
-    AdminDashboardComponent,
-    AvailabilityComponent,
-    DashboardComponent,
-    HomeComponent,
-    ProfileComponent,
-    ShelterDetailsComponent,
-    SettingsComponent,
-  ]
-})
-export class DashboardModule { }
+	imports: [SharedModule, DashboardRoutingModule, LayoutModule],
+	declarations: [
+	AdminSideNavComponent,
+	AdminHeaderComponent,
+	AdminDashboardComponent,
+	AvailabilityComponent,
+	DashboardComponent,
+	HomeComponent,
+	ProfileComponent,
+	ShelterDetailsComponent,
+	SettingsComponent
+	]
+	})
+export class DashboardModule {}

@@ -1,4 +1,4 @@
-export class Shelter extends Object {
+export interface Shelter extends Object {
 	id: number;
 	shelter_name: string;
 	shelter_address: string;
