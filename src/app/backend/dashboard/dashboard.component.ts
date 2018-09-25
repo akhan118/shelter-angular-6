@@ -1,9 +1,10 @@
 import {
 	Component, ViewChild, AfterViewInit, OnInit
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { Router, NavigationEnd, Event } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { MenuService } from '@appCore/services/menu.service';
 import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
@@ -17,16 +18,25 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 	@ViewChild('drawer')
   sideNav: MatSidenav;
   componentName: string;
+  dialogRef: MatDialogRef<any>;
 
 	constructor(
-		private activated: ActivatedRoute,
+    private router: Router,
+		private location: Location,
 		private dialog: MatDialog,
 		private menuService: MenuService
 	) {
 		this.showDialog();
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+    const pathsMatch: boolean = this.location.isCurrentPathEqualTo('/backend/dashboard/shelter-details');
+    if (pathsMatch) {
+      this.dialogRef.close();
+    } else {
+      this.showDialog();
+    }
+  }
 
 	ngAfterViewInit() {
 		/*
@@ -46,7 +56,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 	}
 
 	private showDialog() {
-		this.dialog.open(DetailsDialogComponent, {
+		this.dialogRef = this.dialog.open(DetailsDialogComponent, {
 			closeOnNavigation: false,
 			disableClose: true,
 			hasBackdrop: true
