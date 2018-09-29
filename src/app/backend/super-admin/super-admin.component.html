@@ -1,0 +1,61 @@
+<div class="grid-container">
+  <mat-grid-list cols="3" rowHeight="4:2">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <article class="super-stat">
+            <h2 class="digit">8</h2>
+            <p class="text">Shelters Pending Approval</p>
+          </article>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <article class="super-stat">
+            <h2 class="digit">8</h2>
+            <p class="text">Shelters Active</p>
+          </article>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <article class="super-stat">
+            <h2 class="digit">8</h2>
+            <p class="text">Shelters Inactive</p>
+          </article>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="4">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h4>Shelters</h4>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <mat-list>
+            <mat-list-item class="super-list-item" *ngFor="let shelter of shelters">
+              <article style="flex: 2;">
+                <p>{{shelter.shelter_name}}</p>
+                <p>{{shelter.shelter_address}}</p>
+              </article>
+              <select style="flex: 1;">
+                <option [ngValue]="shelter.status">{{shelter.status}}</option>
+                <option *ngFor="let status of statuses" [ngValue]="status">{{status}}</option>
+              </select>
+              <button style="flex: 1; margin-left: 20px;" (click)="updateStatus('status')">
+                Update
+              </button>
+            </mat-list-item>
+          </mat-list>
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

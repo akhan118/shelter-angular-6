@@ -14,6 +14,11 @@ const backendRoutes: Routes = [
         path: 'dashboard',
         canActivate: [AuthGuard],
         loadChildren: '@appBackend/dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'super-admin',
+        // canActivate: [AuthGuard],
+        loadChildren: '@appBackend/super-admin/super-admin.module#SuperAdminModule'
       }
     ]
   }

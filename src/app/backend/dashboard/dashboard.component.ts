@@ -13,7 +13,8 @@ import { DetailsDialogComponent } from './details-dialog/details-dialog.componen
 	selector: 'sa-dashboard',
 	templateUrl: './dashboard.component.html',
 	styleUrls: ['./dashboard.component.css']
-	})
+})
+
 export class DashboardComponent implements OnInit, AfterViewInit {
 	@ViewChild('drawer')
   sideNav: MatSidenav;

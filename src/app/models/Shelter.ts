@@ -11,6 +11,7 @@ export interface Shelter extends Object {
 	shelter_type: {
 		id: number;
 		name: 'Woman' | 'Men' | 'Youth' | 'Family' | 'All';
-	};
+  };
+  status?: 'pending' | 'active' | 'inactive';
 	last_updated: number;
 }

@@ -6,10 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { CoreModule } from '@appCore/core.module';
 import { BackendModule } from '@appBackend/backend.module';
 import { FrontendModule } from '@appFrontend/frontend.module';
+import { SuperAdminModule } from '@appBackend/super-admin/super-admin.module';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from '@appShared/shared.module';
 import { AppComponent } from './app.component';
 import { UrlErrorComponent } from './404/url-error.component';
-import { SharedModule } from '@appShared/shared.module';
 import { FiltersComponent } from '@appFrontend/filters/filters.component';
 import { DetailsDialogComponent } from '@appBackend/dashboard/details-dialog/details-dialog.component';
 
@@ -19,7 +20,8 @@ import { DetailsDialogComponent } from '@appBackend/dashboard/details-dialog/det
 	BrowserModule,
 	CoreModule.forRoot(),
 	SharedModule,
-	AppRoutingModule,
+  AppRoutingModule,
+  SuperAdminModule,
 	BackendModule,
 	FrontendModule,
 	FormsModule,

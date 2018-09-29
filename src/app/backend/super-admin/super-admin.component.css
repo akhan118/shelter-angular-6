@@ -1,0 +1,54 @@
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.grid-container {
+  margin: 20px;
+}
+
+.super-stat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.super-stat .digit {
+  flex: 1;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.super-stat .text {
+  flex: 2;
+  text-align: left;
+}
+
+.super-list-item {
+  overflow: hidden;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.super-list-item .mat-list-item-content {
+  display: flex;
+}
+
+.super-list-item .mat-list-item-content article {
+  flex: 4;
+}
+
+.mat-list-item-content p {
+  flex: 1;
+}
+
+.mat-list-item-content button {
+  flex: 1;
+}

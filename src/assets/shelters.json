@@ -12,7 +12,8 @@
     "shelter_type": {
       "id": 3,
       "name": "Youth"
-    }
+    },
+    "status": "pending"
   },
   {
     "id": 1,
@@ -27,7 +28,8 @@
     "shelter_type": {
       "id": 2,
       "name": "Men"
-    }
+    },
+    "status": "pending"
   },
   {
     "id": 1,
@@ -42,7 +44,8 @@
     "shelter_type": {
       "id": 2,
       "name": "Men"
-    }
+    },
+    "status": "pending"
   },
   {
     "id": 1,
@@ -57,7 +60,8 @@
     "shelter_type": {
       "id": 4,
       "name": "Family"
-    }
+    },
+    "status": "pending"
   },
   {
     "id": 1,
@@ -72,7 +76,8 @@
     "shelter_type": {
       "id": 3,
       "name": "Youth"
-    }
+    },
+    "status": "active"
   },
   {
     "id": 1,
@@ -87,7 +92,8 @@
     "shelter_type": {
       "id": 1,
       "name": "Women"
-    }
+    },
+    "status": "active"
   },
   {
     "id": 1,
@@ -102,7 +108,8 @@
     "shelter_type": {
       "id": 4,
       "name": "Family"
-    }
+    },
+    "status": "inactive"
   },
   {
     "id": 1,
@@ -117,7 +124,8 @@
     "shelter_type": {
       "id": 3,
       "name": "Youth"
-    }
+    },
+    "status": "inactive"
   },
   {
     "id": 1,
@@ -132,7 +140,8 @@
     "shelter_type": {
       "id": 2,
       "name": "Men"
-    }
+    },
+    "status": "inactive"
   },
   {
     "id": 1,
@@ -147,7 +156,8 @@
     "shelter_type": {
       "id": 2,
       "name": "Men"
-    }
+    },
+    "status": "active"
   },
   {
     "id": 1,
@@ -162,7 +172,8 @@
     "shelter_type": {
       "id": 1,
       "name": "Women"
-    }
+    },
+    "status": "active"
   },
   {
     "id": 1,
@@ -177,7 +188,8 @@
     "shelter_type": {
       "id": 1,
       "name": "Women"
-    }
+    },
+    "status": "active"
   },
   {
     "id": 1,
@@ -192,7 +204,8 @@
     "shelter_type": {
       "id": 3,
       "name": "Youth"
-    }
+    },
+    "status": "active"
   },
   {
     "id": 1,
@@ -207,6 +220,7 @@
     "shelter_type": {
       "id": 1,
       "name": "Women"
-    }
+    },
+    "status": "inactive"
   }
 ]

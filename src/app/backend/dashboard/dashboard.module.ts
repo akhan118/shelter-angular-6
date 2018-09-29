@@ -17,15 +17,15 @@ import { SettingsComponent } from '@appBackend/dashboard/settings/settings.compo
 @NgModule({
 	imports: [SharedModule, DashboardRoutingModule, LayoutModule],
 	declarations: [
-	AdminSideNavComponent,
-	AdminHeaderComponent,
-	AdminDashboardComponent,
-	AvailabilityComponent,
-	DashboardComponent,
-	HomeComponent,
-	ProfileComponent,
-	ShelterDetailsComponent,
-	SettingsComponent
+    AdminSideNavComponent,
+    AdminHeaderComponent,
+    AdminDashboardComponent,
+    AvailabilityComponent,
+    DashboardComponent,
+    HomeComponent,
+    ProfileComponent,
+    ShelterDetailsComponent,
+    SettingsComponent
 	]
 	})
 export class DashboardModule {}

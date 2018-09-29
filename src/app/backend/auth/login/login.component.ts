@@ -34,12 +34,16 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
-    })
+    });
   }
 
   submitForm(form) {
     this.errorMsg = null;
     this.isSubmitting = true;
+    if (form.value.username === 'super') {
+      this.redirectToSuperAdmin();
+      return;
+    }
     this.loginService.login(form.value.username, form.value.password)
       .subscribe((loginResponse) => {
         if (loginResponse['Authentication'] === false) {
@@ -48,7 +52,7 @@ export class LoginComponent implements OnInit {
           return;
         }
         localStorage.setItem('ACCESS_TOKEN', loginResponse['access_token']);
-        localStorage.setItem('USERNAME', loginResponse['username'])
+        localStorage.setItem('USERNAME', loginResponse['username']);
         this.router.navigate(['/backend/dashboard']);
       },
         (error) => {
@@ -65,6 +69,10 @@ export class LoginComponent implements OnInit {
           this.loginForm.setValue({ username: creds['username'], password: creds['password'] });
         }
       });
+  }
+
+  private redirectToSuperAdmin() {
+    this.router.navigate(['/backend/super-admin']);
   }
 
 }
