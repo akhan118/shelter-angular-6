@@ -1,31 +1,32 @@
 <div class="grid-container">
+  <sa-navbar></sa-navbar>
   <mat-grid-list cols="3" rowHeight="4:2">
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
-        <mat-card-content class="dashboard-card-content">
+        <mat-card-content class="dashboard-card-content color-bluejean">
           <article class="super-stat">
             <h2 class="digit">8</h2>
-            <p class="text">Shelters Pending Approval</p>
+            <p class="text">Shelters <br /> Pending <br /> Approval</p>
           </article>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
-        <mat-card-content class="dashboard-card-content">
+        <mat-card-content class="dashboard-card-content color-bluejean">
           <article class="super-stat">
             <h2 class="digit">8</h2>
-            <p class="text">Shelters Active</p>
+            <p class="text">Shelters <br /> Active</p>
           </article>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
-        <mat-card-content class="dashboard-card-content">
+        <mat-card-content class="dashboard-card-content color-bluejean">
           <article class="super-stat">
             <h2 class="digit">8</h2>
-            <p class="text">Shelters Inactive</p>
+            <p class="text">Shelters <br /> Inactive</p>
           </article>
         </mat-card-content>
       </mat-card>
@@ -33,22 +34,23 @@
     <mat-grid-tile [colspan]="3" [rowspan]="4">
       <mat-card class="dashboard-card">
         <mat-card-header>
-          <mat-card-title>
+          <!-- <mat-card-title>
             <h4>Shelters</h4>
-          </mat-card-title>
+          </mat-card-title> -->
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <mat-list>
             <mat-list-item class="super-list-item" *ngFor="let shelter of shelters">
-              <article style="flex: 2;">
+              <article class="color-bluejean">
                 <p>{{shelter.shelter_name}}</p>
                 <p>{{shelter.shelter_address}}</p>
               </article>
-              <select style="flex: 1;">
-                <option [ngValue]="shelter.status">{{shelter.status}}</option>
-                <option *ngFor="let status of statuses" [ngValue]="status">{{status}}</option>
-              </select>
-              <button style="flex: 1; margin-left: 20px;" (click)="updateStatus('status')">
+              <mat-form-field class="form__field">
+                <mat-select class="form__input" type="text" placeholder="Shelter Type" formControlName="shelterType">
+                  <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button class="button" (click)="updateStatus('status')">
                 Update
               </button>
             </mat-list-item>

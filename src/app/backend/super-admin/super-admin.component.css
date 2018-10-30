@@ -4,17 +4,21 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  padding: 5px;
 }
 
 .dashboard-card-content {
+  height: 100%;
   text-align: center;
 }
 
 .grid-container {
-  margin: 20px;
+  background-color: #c1dbe3;
+  font-family: Roboto;
 }
 
 .super-stat {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,31 +28,97 @@
   flex: 1;
   text-align: right;
   padding-right: 10px;
+  margin: 0;
 }
 
 .super-stat .text {
   flex: 2;
   text-align: left;
+  font-size: 2vw;
+  word-break: break-word;
 }
 
 .super-list-item {
   overflow: hidden;
   margin-bottom: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: none;
+}
+.mat-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
 }
 
+.mat-card-content {
+  display: flex;
+}
 .super-list-item .mat-list-item-content {
   display: flex;
+  flex-wrap: flex;
 }
 
 .super-list-item .mat-list-item-content article {
   flex: 4;
+  width: 25vw;
+}
+
+.mat-list .mat-list-item {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-list-item-content {
+  flex-wrap: wrap;
 }
 
 .mat-list-item-content p {
   flex: 1;
+  width: 50px;
 }
 
 .mat-list-item-content button {
   flex: 1;
+}
+
+.super-stat h2 {
+  font-size: 8vw;
+  color: rgba(11, 57, 84, 1);
+}
+
+.mat-list p {
+  width: 25vw;
+}
+
+button {
+  border-radius: 20px;
+  background-color: #b1bac3;
+  color: #ffffff;
+  font-family: 'Quando';
+  font-size: 15px;
+  height: 75px;
+  padding-right: 75px;
+  padding-left: 75px;
+  margin-left: 15vw !important;
+}
+
+select {
+  border: none;
+  color: rgba(11, 57, 84, 1);
+  font-size: 15px;
+  text-transform: capitalize;
+  font-size: 2vw;
+}
+
+.mat-form-field-infix {
+  text-transform: capitalize;
+}
+
+article {
+  display: flex;
+}
+
+p {
+  color: rgba(11, 57, 84, 1);
+  flex-wrap: wrap;
 }

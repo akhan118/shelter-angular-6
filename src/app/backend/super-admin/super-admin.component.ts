@@ -1,6 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Shelter } from '../../models/Shelter';
 
+
+//Is this the right way to add a component???
+
+// import { Component, OnInit, Input } from '@angular/core';
+//
+// @Component({
+//   selector: 'sa-navbar',
+//   templateUrl: './navbar.component.html',
+//   styleUrls: ['./navbar.component.css']
+// })
+// export class NavbarComponent implements OnInit {
+//   @Input() navItems;
+//
+//   constructor() { }
+//
+//   ngOnInit() { }
+//
+// }
+
 @Component({
   selector: 'sa-super-admin',
   templateUrl: './super-admin.component.html',
