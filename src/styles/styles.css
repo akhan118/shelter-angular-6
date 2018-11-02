@@ -54,7 +54,7 @@ p {
 }
 
 .font-size-lg {
- font-size: 1.8rem; 
+  font-size: 1.8rem;
 }
 
 /******************************
@@ -278,5 +278,10 @@ Admin Section Styles
   color: var(--bluejean-blue);
 }
 
-.admin-section__card {
+.msg-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
 }

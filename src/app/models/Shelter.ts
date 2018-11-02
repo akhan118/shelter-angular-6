@@ -1,4 +1,4 @@
-export class Shelter extends Object {
+export interface Shelter extends Object {
 	id: number;
 	shelter_name: string;
 	shelter_address: string;
@@ -11,6 +11,7 @@ export class Shelter extends Object {
 	shelter_type: {
 		id: number;
 		name: 'Woman' | 'Men' | 'Youth' | 'Family' | 'All';
-	};
+  };
+  status?: 'pending' | 'active' | 'inactive';
 	last_updated: number;
 }

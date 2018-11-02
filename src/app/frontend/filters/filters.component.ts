@@ -17,6 +17,11 @@ export class FiltersComponent {
 	selectedType: ShelterType;
 	shelterTypes: ShelterType[] = [
 		{
+			id: 5,
+			value: 'All',
+			uiSelected: true
+		},
+		{
 			id: 1,
 			value: 'Women',
 			uiSelected: false
@@ -35,11 +40,6 @@ export class FiltersComponent {
 			id: 4,
 			value: 'Family',
 			uiSelected: false
-		},
-		{
-			id: 5,
-			value: 'All',
-			uiSelected: true
 		}
 	];
 

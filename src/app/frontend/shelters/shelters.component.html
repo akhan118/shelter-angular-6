@@ -6,10 +6,10 @@
   <ul class="shelters-list" *ngIf="shelters.length && !isLoading">
     <sa-shelter-item *ngFor="let shelter of shelters" [ShelterData]="shelter"></sa-shelter-item>
   </ul>
-  <div *ngIf="!shelters.length && !isLoading && !errorMsg">
-    No shelters found
-  </div>
-  <div class="error-msg" *ngIf="errorMsg">
-    {{this.errorMsg}}
+  <div class="msg-container">
+    <div *ngIf="!shelters.length && !isLoading && !errorMsg">
+      No shelters found
+    </div>
+    <p class="error-msg" *ngIf="errorMsg">{{this.errorMsg}}</p>
   </div>
 </section>
