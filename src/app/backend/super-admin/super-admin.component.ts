@@ -1,24 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Shelter } from '../../models/Shelter';
-
-
-//Is this the right way to add a component???
-
-// import { Component, OnInit, Input } from '@angular/core';
-//
-// @Component({
-//   selector: 'sa-navbar',
-//   templateUrl: './navbar.component.html',
-//   styleUrls: ['./navbar.component.css']
-// })
-// export class NavbarComponent implements OnInit {
-//   @Input() navItems;
-//
-//   constructor() { }
-//
-//   ngOnInit() { }
-//
-// }
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'sa-super-admin',
@@ -252,16 +233,23 @@ export class SuperAdminComponent implements OnInit {
         'status': 'inactive'
       }
   ];
-
   statuses: string[] = ['pending', 'active', 'inactive'];
-  constructor() { }
+  statusForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    console.log(this.shelters);
+    this.createStatusForm();
   }
 
-  updateStatus(statusValue: string) {
-    console.log('status value', statusValue);
+  createStatusForm() {
+    this.statusForm = this.fb.group({
+      statusCtrl: [this.statuses[0]]
+    });
+  }
+
+  updateStatus() {
+    console.info('status value', this.statusForm.controls['status'].value);
   }
 
 }

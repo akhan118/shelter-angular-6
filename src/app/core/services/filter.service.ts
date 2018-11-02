@@ -20,7 +20,7 @@ export class FilterService {
 	getShelters(shelterTypeId: number = 5) {
 		this.shelterService.getShelters(shelterTypeId).subscribe(
 			(shelters: Shelter[]) => {
-				this.allShelters = shelters;
+        this.allShelters = shelters;
 				setTimeout(() => {
 					this.shelters.next(this.allShelters);
 				}, 300);
@@ -44,9 +44,6 @@ export class FilterService {
 		const filteredShelters: Shelter[] = [ ...this.allShelters ].filter(
 			(shelter: Shelter) => this.shelterType(shelter, filtersObj['typeId'])
 		);
-		// .filter((shelter: Shelter) =>
-		// 	this.updatedTime(shelter, filtersObj['lastUpdated'])
-		// );
 		this.shelters.next(filteredShelters);
 	}
 }

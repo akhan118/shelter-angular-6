@@ -29,8 +29,8 @@ export class ShelterService {
 			`Bearer ${localStorage.getItem('ACCESS_TOKEN')}`
 		);
 		const params = new HttpParams().set('sheltertype', shelterType.toString());
-		return this.http.get<Shelter[]>('../assets/shelters.json');
-		// return this.http.get<Shelter[]>(`${this.baseUrl}/getrequestedinfov2`, { headers, params });
+		// return this.http.get<Shelter[]>('../assets/shelters.json');
+		return this.http.get<Shelter[]>(`${this.baseUrl}/getrequestedinfov2`, { headers, params });
 	}
 
 	getShelterAvailability(id: number | string) {
