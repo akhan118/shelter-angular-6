@@ -1,17 +1,31 @@
+.banner-message {
+  height: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  background-color: #ff8000;
+  transition: height 0.4s ease-in;
+}
+
+.banner-message.show {
+  height: 75px;
+}
+
 .dashboard {
-	height: 100%;
-	overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
 .dashboard__content {
-	height: 100%;
-	overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
 .dashboard__main {
-	height: calc(100% - 60px);
-	overflow-y: auto;
-	background-color: rgba(193, 219, 227, 1);
+  height: calc(100% - 60px);
+  overflow-y: auto;
+  background-color: rgba(193, 219, 227, 1);
 }
 
 /****************************************
@@ -20,5 +34,5 @@ Material Theme Overrides
 
 ****************************************/
 mat-drawer {
-	width: 250px;
+  width: 250px;
 }

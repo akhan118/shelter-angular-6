@@ -4,9 +4,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { SharedModule } from '@appShared/shared.module';
 import { DashboardRoutingModule } from '@appBackend/dashboard/dashboard-routing.module';
 
-import { AdminSideNavComponent } from '@appBackend/dashboard/admin-sidenav/admin-sidenav.component';
 import { AdminHeaderComponent } from '@appBackend/dashboard/admin-header/admin-header.component';
-import { AdminDashboardComponent } from '@appBackend/dashboard/admin-dashboard/admin-dashboard.component';
 import { AvailabilityComponent } from '@appBackend/dashboard/availability/availability.component';
 import { DashboardComponent } from '@appBackend/dashboard/dashboard.component';
 import { HomeComponent } from '@appBackend/dashboard/home/home.component';
@@ -15,17 +13,23 @@ import { ShelterDetailsComponent } from '@appBackend/dashboard/shelter-details/s
 import { SettingsComponent } from '@appBackend/dashboard/settings/settings.component';
 
 @NgModule({
-	imports: [SharedModule, DashboardRoutingModule, LayoutModule],
+	imports: [
+        SharedModule,
+        DashboardRoutingModule,
+        LayoutModule
+  ],
 	declarations: [
-    AdminSideNavComponent,
-    AdminHeaderComponent,
-    AdminDashboardComponent,
-    AvailabilityComponent,
-    DashboardComponent,
-    HomeComponent,
-    ProfileComponent,
-    ShelterDetailsComponent,
-    SettingsComponent
-	]
+        AdminHeaderComponent,
+        AvailabilityComponent,
+        DashboardComponent,
+        HomeComponent,
+        ProfileComponent,
+        ShelterDetailsComponent,
+        SettingsComponent
+	],
+    exports: [
+        ProfileComponent,
+        ShelterDetailsComponent,
+    ]
 	})
 export class DashboardModule {}
