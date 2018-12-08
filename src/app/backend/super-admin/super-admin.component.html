@@ -34,25 +34,16 @@
     <mat-grid-tile [colspan]="3" [rowspan]="4">
       <mat-card class="dashboard-card admin-content">
         <mat-card-content class="dashboard-card-content">
-          <mat-list>
-            <mat-list-item class="super-list-item" *ngFor="let shelter of shelters">
-              <article class="shelter-details">
-                <p class="name">{{shelter.shelter_name}}</p>
-                <p class="address">{{shelter.shelter_address}}</p>
-              </article>
-              <form class="form" [formGroup]="statusForm" (ngSubmit)="updateStatus()">
-                <mat-form-field class="form__field">
-                  <mat-select class="form__input" type="text" placeholder="Approval Status" formControlName="statusCtrl">
-                    <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <button mat-button class="button bg-cranberry" type="submit">
-                  Update
-                </button>
-              </form>
-            </mat-list-item>
-          </mat-list>
-
+          <ul *ngIf="shelters; else errorMessage">
+            <sa-shelter-status
+              *ngFor="let shelterInfo of shelters"
+              [shelter]="shelterInfo" (updateStatus)="update($event)">
+	           </sa-shelter-status>
+          </ul>
+          <ng-template #errorMessage>
+            <p>There was an error loading the shelters.</p>
+            <p>Reload the page and try again.</p>
+          </ng-template>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

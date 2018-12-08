@@ -23,14 +23,13 @@ export class LoginService {
   }
 
   signup(signupData: object) {
-    console.log(signupData)
     const signupUrl: string = `${this.baseUrl}/signup`;
     return this.http.post(signupUrl, { signupData });
   }
 
   isLoggedIn(): boolean {
     let loggedInStatus: boolean = false;
-    const accessToken = localStorage.getItem('ACCESS_TOKEN');
+    const accessToken = sessionStorage.getItem('ACCESS_TOKEN');
     if (accessToken) {
       loggedInStatus = true;
     }

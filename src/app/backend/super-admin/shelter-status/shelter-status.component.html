@@ -1,0 +1,22 @@
+<div class="super-list-item">
+  <article class="shelter-details">
+    <p class="name">{{ shelter.shelter_name }}</p>
+    <p class="address">{{ shelter.shelter_address }}</p>
+  </article>
+    <form class="form" [formGroup]="statusForm" (ngSubmit)="updateStatus()">
+      <mat-form-field class="form__field">
+        <mat-select
+          class="form__input"
+          type="text"
+          placeholder="Shelter Status"
+          formControlName="status"
+	  selected="convertStatus(shelter.shelter_approved)"
+        >
+          <mat-option *ngFor="let status of statuses" [value]="status">
+            {{ status.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button class="button bg-cranberry" type="submit">Update</button>
+    </form>
+<div>

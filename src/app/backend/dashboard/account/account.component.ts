@@ -9,21 +9,21 @@ export class Shelter extends Object {
   address: {
     street: string;
     zip: number;
-  }
+  };
   phoneNumber: number;
 }
 
 @Component({
-  selector: 'sa-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'sa-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css']
 })
 
-export class ProfileComponent implements OnInit {
+export class AccountComponent implements OnInit {
   currentShelter: Shelter;
   editing: boolean = false;
   isSubmitting: boolean = false;
-  userInfoForm: FormGroup;
+  accountInfoForm: FormGroup;
 
   constructor(
     private shelterService: ShelterService,
@@ -32,12 +32,17 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     // When component is initialized create UserInfo form
-    this.createUserInfoForm();
+    this.createAccountInfoForm();
   }
 
-  disableForm() {
+  toggleEditing() {
     this.editing = !this.editing;
-    this.editing === false ? this.userInfoForm.disable() : this.userInfoForm.enable();
+    if (!this.editing) {
+      this.accountInfoForm.disable();
+    } else {
+      this.accountInfoForm.reset();
+      this.accountInfoForm.enable();
+    }
   }
 
   submitForm(form: FormGroup) {
@@ -48,16 +53,17 @@ export class ProfileComponent implements OnInit {
     }, 4000);
   }
 
-  private createUserInfoForm() {
+  private createAccountInfoForm() {
+    const username: string = localStorage.getItem('USERNAME');
     // Create userInfo FormGroup using FormBuilder module
-    this.userInfoForm = this.fb.group({
-      username: ['mchilds', Validators.required],
-      email: ['mchilds@helpinghanddetroit.com', [Validators.required, Validators.email]],
-      password: ['password', Validators.required]
+    this.accountInfoForm = this.fb.group({
+      username: [username, Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
 
     // Disable form initially until user clicks 'edit' button
-    this.userInfoForm.disable();
+    this.accountInfoForm.disable();
   }
 
 }

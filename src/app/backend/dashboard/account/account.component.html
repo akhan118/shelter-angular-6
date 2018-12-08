@@ -1,13 +1,13 @@
 <section class="admin-section">
     <div class="button__wrapper">
-      <button mat-button class="button button--edit bg-bluejean" (click)="disableForm()">
+      <button mat-button class="button button--edit bg-bluejean" (click)="toggleEditing()">
         <div class="button__content" [class.animate-up]="editing">
           <span class="button__text">Edit</span>
           <span class="button__text">Cancel</span>
         </div>
       </button>
     </div>
-    <form class="form form--profile" [formGroup]="userInfoForm" (ngSubmit)="submitForm(userInfoForm)">
+    <form class="form form--profile" [formGroup]="accountInfoForm" (ngSubmit)="submitForm(accountInfoForm)">
       <mat-form-field class="form__field">
         <input matInput class="form__input" type="text" placeholder="Username" formControlName="username" [class.input--disabled]="!editing"
           required>
@@ -20,7 +20,7 @@
         <input matInput class="form__input" type="password" placeholder="Password" formControlName="password" [class.input--disabled]="!editing"
           required>
       </mat-form-field>
-      <button mat-button class="button button--update bg-cranberry" type="submit" [disabled]="userInfoForm.invalid || isSubmitting"
+      <button mat-button class="button button--update bg-cranberry" type="submit" [disabled]="accountInfoForm.invalid || isSubmitting"
         *ngIf="editing">
         <span class="button__text">Update Profile</span>
       </button>

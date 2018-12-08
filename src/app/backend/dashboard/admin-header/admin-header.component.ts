@@ -1,24 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { UserDetailsService } from '@appCore/services/user-details.service';
-import { MenuService } from '@appCore/services/menu.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sa-admin-header',
   templateUrl: './admin-header.component.html',
   styleUrls: ['./admin-header.component.css']
 })
-export class AdminHeaderComponent implements OnInit {
-  username: string = localStorage.getItem('USERNAME');
+export class AdminHeaderComponent {
+  username: string = sessionStorage.getItem('USERNAME');
 
-  constructor(private menuService: MenuService, private userDetails: UserDetailsService) { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
-    //this.username = this.userDetails.username;
-  }
-
-  toggleMenu() {
-    this.menuService.toggleMenu();
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['/backend/login']);
   }
 
 }

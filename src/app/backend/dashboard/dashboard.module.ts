@@ -8,7 +8,7 @@ import { AdminHeaderComponent } from '@appBackend/dashboard/admin-header/admin-h
 import { AvailabilityComponent } from '@appBackend/dashboard/availability/availability.component';
 import { DashboardComponent } from '@appBackend/dashboard/dashboard.component';
 import { HomeComponent } from '@appBackend/dashboard/home/home.component';
-import { ProfileComponent } from '@appBackend/dashboard/profile/profile.component';
+import { AccountComponent } from '@appBackend/dashboard/account/account.component';
 import { ShelterDetailsComponent } from '@appBackend/dashboard/shelter-details/shelter-details.component';
 import { SettingsComponent } from '@appBackend/dashboard/settings/settings.component';
 
@@ -23,12 +23,12 @@ import { SettingsComponent } from '@appBackend/dashboard/settings/settings.compo
         AvailabilityComponent,
         DashboardComponent,
         HomeComponent,
-        ProfileComponent,
+        AccountComponent,
         ShelterDetailsComponent,
         SettingsComponent
 	],
     exports: [
-        ProfileComponent,
+        AccountComponent,
         ShelterDetailsComponent,
     ]
 	})

@@ -3,9 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { LoginService } from '@appCore/services/login.service';
-import { UserDetailsService } from '@appCore/services/user-details.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
 
 @Component({
   selector: 'sa-login',
@@ -21,8 +18,7 @@ export class LoginComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router,
-    private userDetails: UserDetailsService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -51,8 +47,9 @@ export class LoginComponent implements OnInit {
           this.errorMsg = 'There was an error logging in. Please try again.';
           return;
         }
-        localStorage.setItem('ACCESS_TOKEN', loginResponse['access_token']);
-        localStorage.setItem('USERNAME', loginResponse['username']);
+        sessionStorage.setItem('SHELTER_ID', loginResponse['shelter_id']);
+        sessionStorage.setItem('ACCESS_TOKEN', loginResponse['access_token']);
+        sessionStorage.setItem('USERNAME', loginResponse['username']);
         this.router.navigate(['/backend/dashboard']);
       },
         (error) => {
