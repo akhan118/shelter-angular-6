@@ -28,7 +28,7 @@ export class SuperAdminComponent implements OnInit {
     this.subscription = this.shelterService.getSheltersWithStatus().subscribe(
       sheltersResponse => {
         this.isLoading = false;
-        this.shelters = sheltersResponse[0]
+        this.shelters = sheltersResponse[1]
       }, (error: HttpErrorResponse) => {
         this.isLoading = false;
         this.errorMsg = 'Error getting shelters. Reload the page and try again.';
