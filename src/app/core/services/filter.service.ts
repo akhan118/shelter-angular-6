@@ -7,20 +7,20 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
 	providedIn: 'root'
-	})
+})
 export class FilterService {
-  private allShelters: Shelter[] = [];
+	private allShelters: Shelter[] = [];
 	private error = new Subject<HttpErrorResponse>();
 	private shelters = new Subject<Shelter[]>();
 	error$: Observable<HttpErrorResponse> = this.error.asObservable();
 	shelters$: Observable<Shelter[]> = this.shelters.asObservable();
 
-	constructor(private shelterService: ShelterService) {}
+	constructor(private shelterService: ShelterService) { }
 
 	getShelters(shelterTypeId: number = 5) {
 		this.shelterService.getShelters(shelterTypeId).subscribe(
 			(shelters: Shelter[]) => {
-        this.allShelters = shelters;
+				this.allShelters = shelters;
 				setTimeout(() => {
 					this.shelters.next(this.allShelters);
 				}, 300);
@@ -32,7 +32,7 @@ export class FilterService {
 		);
 	}
 
-	private shelterType(shelter: Shelter, shelterTypeId: number) {
+	private shelterType(shelter: Shelter, shelterTypeId: string) {
 		return shelter.shelter_type.id === shelterTypeId;
 	}
 
@@ -41,7 +41,7 @@ export class FilterService {
 	}
 
 	applyFilters(filtersObj: object) {
-		const filteredShelters: Shelter[] = [ ...this.allShelters ].filter(
+		const filteredShelters: Shelter[] = [...this.allShelters].filter(
 			(shelter: Shelter) => this.shelterType(shelter, filtersObj['typeId'])
 		);
 		this.shelters.next(filteredShelters);
