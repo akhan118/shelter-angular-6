@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <sa-navbar></sa-navbar>
+  <sa-admin-header></sa-admin-header>
   <mat-grid-list cols="3" rowHeight="4:2">
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
@@ -34,25 +34,17 @@
     <mat-grid-tile [colspan]="3" [rowspan]="4">
       <mat-card class="dashboard-card admin-content">
         <mat-card-content class="dashboard-card-content">
-          <mat-list>
-            <mat-list-item class="super-list-item" *ngFor="let shelter of shelters">
-              <article class="shelter-details">
-                <p class="name">{{shelter.shelter_name}}</p>
-                <p class="address">{{shelter.shelter_address}}</p>
-              </article>
-              <form class="form" [formGroup]="statusForm" (ngSubmit)="updateStatus()">
-                <mat-form-field class="form__field">
-                  <mat-select class="form__input" type="text" placeholder="Approval Status" formControlName="statusCtrl">
-                    <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <button mat-button class="button bg-cranberry" type="submit">
-                  Update
-                </button>
-              </form>
-            </mat-list-item>
-          </mat-list>
-
+          <div *ngIf="isLoading">
+            <sa-loading-icon [iconColor]="'#0B3954'"></sa-loading-icon>
+          </div>
+          <ul *ngIf="shelters.length && !isLoading">
+            <sa-shelter-status *ngFor="let shelterInfo of shelters" [shelter]="shelterInfo" (updateStatus)="update($event)">
+            </sa-shelter-status>
+          </ul>
+          <div *ngIf="!shelters.length && !isLoading && !errorMsg">
+            No shelters found
+          </div>
+          <p class="error-msg" *ngIf="errorMsg">{{this.errorMsg}}</p>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

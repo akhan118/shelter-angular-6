@@ -1,0 +1,64 @@
+.dashboard__header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: rgba(11, 57, 84, 1);
+  background-color: var(--bluejean-blue);
+}
+
+.icon-wrapper {
+  height: 100%;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wrapper .menu-icon {
+  font-size: 3.6rem;
+}
+
+.user-info {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 60px;
+}
+
+.user-info__name {
+  margin: 0px;
+  margin-right: 10px;
+}
+
+.user-info__avatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-info__avatar:hover {
+  cursor: pointer;
+}
+
+.avatar-icon {
+  font-size: 45px;
+}
+
+button.mat-menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-icon {
+  font-size: 25px;
+  margin-right: 10px;
+}

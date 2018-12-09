@@ -12,7 +12,6 @@ import { SharedModule } from '@appShared/shared.module';
 import { AppComponent } from './app.component';
 import { UrlErrorComponent } from './404/url-error.component';
 import { FiltersComponent } from '@appFrontend/filters/filters.component';
-import { DetailsDialogComponent } from '@appBackend/dashboard/details-dialog/details-dialog.component';
 
 @NgModule({
 	declarations: [AppComponent, UrlErrorComponent],
@@ -27,7 +26,7 @@ import { DetailsDialogComponent } from '@appBackend/dashboard/details-dialog/det
 	FormsModule,
 	BrowserAnimationsModule
 	],
-	entryComponents: [FiltersComponent, DetailsDialogComponent],
+	entryComponents: [FiltersComponent],
 	bootstrap: [AppComponent]
 	})
 export class AppModule {}

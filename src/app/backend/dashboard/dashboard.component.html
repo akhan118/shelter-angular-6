@@ -1,12 +1,12 @@
 <mat-drawer-container class="dashboard">
-  <!-- Side Nav -->
-  <mat-drawer #drawer mode="over" opened="false" class="dashboard__menu">
-    <sa-admin-sidenav></sa-admin-sidenav>
-  </mat-drawer>
-
   <!-- Main Content -->
   <mat-drawer-content class="dashboard__content">
-
+    <div class="banner-message" [class.show]="showBanner">
+      <p class="font-size-md">
+        Before this shelter can be displayed to users all of
+        the shelter details must be filled out.
+      </p>
+    </div>
     <!-- Header Content -->
     <sa-admin-header></sa-admin-header>
 
