@@ -4,7 +4,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { SharedModule } from '@appShared/shared.module';
 import { DashboardRoutingModule } from '@appBackend/dashboard/dashboard-routing.module';
 
-import { AdminHeaderComponent } from '@appBackend/dashboard/admin-header/admin-header.component';
 import { AvailabilityComponent } from '@appBackend/dashboard/availability/availability.component';
 import { DashboardComponent } from '@appBackend/dashboard/dashboard.component';
 import { HomeComponent } from '@appBackend/dashboard/home/home.component';
@@ -13,23 +12,22 @@ import { ShelterDetailsComponent } from '@appBackend/dashboard/shelter-details/s
 import { SettingsComponent } from '@appBackend/dashboard/settings/settings.component';
 
 @NgModule({
-	imports: [
+    imports: [
         SharedModule,
         DashboardRoutingModule,
         LayoutModule
-  ],
-	declarations: [
-        AdminHeaderComponent,
+    ],
+    declarations: [
         AvailabilityComponent,
         DashboardComponent,
         HomeComponent,
         AccountComponent,
         ShelterDetailsComponent,
         SettingsComponent
-	],
+    ],
     exports: [
         AccountComponent,
         ShelterDetailsComponent,
     ]
-	})
-export class DashboardModule {}
+})
+export class DashboardModule { }

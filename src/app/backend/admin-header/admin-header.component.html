@@ -2,16 +2,12 @@
 <header class="dashboard__header">
   <article class="user-info">
     <p class="user-info__name">Welcome, {{ username }}</p>
-    <button
-      mat-button
-      class="user-info__avatar"
-      [matMenuTriggerFor]="headerMenu"
-    >
+    <button mat-button class="user-info__avatar" [matMenuTriggerFor]="headerMenu">
       <i class="avatar-icon material-icons"> account_circle </i>
     </button>
   </article>
 </header>
-<mat-menu #headerMenu="matMenu" [overlapTrigger]="false" [yPosition]="below">
+<mat-menu #headerMenu="matMenu" [overlapTrigger]="false" [yPosition]="'below'">
   <button mat-menu-item (click)="logout()">
     <mat-icon class="logout-icon">exit_to_app</mat-icon>
     <span>Logout</span>

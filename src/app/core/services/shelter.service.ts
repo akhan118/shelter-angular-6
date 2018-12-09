@@ -6,7 +6,7 @@ import {
 	HttpErrorResponse
 } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { Shelter } from '../../models/Shelter';
 
@@ -14,7 +14,7 @@ import { Shelter } from '../../models/Shelter';
 export class ShelterService {
 	private baseUrl: string = 'http://www.alphard.us/v1/api';
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) { }
 
 	// Get a list of all shelters
 	getShelters(shelterType: number): Observable<Shelter[]> {
@@ -24,16 +24,16 @@ export class ShelterService {
 		);
 		const params = new HttpParams().set('sheltertype', shelterType.toString());
 		return this.http.get<Shelter[]>(`${this.baseUrl}/getrequestedinfov2`, { headers, params });
-  	}
+	}
 
-  	// Get a list of all shelters
-	getSheltersWithStatus(): Observable<Shelter & {shelter_approved: string}[]> {
+	// Get a list of all shelters
+	getSheltersWithStatus(): Observable<Shelter[]> {
 		const headers = new HttpHeaders().set(
 			'Authorization',
 			`Bearer ${localStorage.getItem('ACCESS_TOKEN')}`
 		);
-		return this.http.get<Shelter & {shelter_approved: string}[]>(`${this.baseUrl}/getallsheltersneedactivation`, { headers });
-  	}
+		return this.http.get<Shelter[]>(`${this.baseUrl}/getallsheltersneedactivation`, { headers });
+	}
 
 	getShelterAvailability(id: number | string) {
 		const params = new HttpParams().set('id', id.toLocaleString());
@@ -57,26 +57,26 @@ export class ShelterService {
 			.set('shelter_email', shelterDetails['shelter_email'])
 			.set('username', shelterDetails['username']);
 		return this.http.get<Shelter[]>(`${this.baseUrl}/shelterconfig`, {
-	          headers,
-	          params
-	    	});
-  	}
+			headers,
+			params
+		});
+	}
 
-  updateShelterStatus(statusId: string, shelterId: string) {
-    const headers = new HttpHeaders().set(
+	updateShelterStatus(statusId: string, shelterId: string) {
+		const headers = new HttpHeaders().set(
 			'Authorization',
 			`Bearer ${localStorage.getItem('ACCESS_TOKEN')}`
-    );
+		);
 
-    const params = new HttpParams()
-      .set('shelter_approved', statusId.toLocaleString())
-      .set('shelter_id', shelterId.toLocaleString());
+		const params = new HttpParams()
+			.set('shelter_approved', statusId.toLocaleString())
+			.set('shelter_id', shelterId.toLocaleString());
 
-    return this.http.get<Shelter[]>(`${this.baseUrl}/updateshelterapprovalupdate`, {
-      headers,
-      params
-    });
-  }
+		return this.http.get<Shelter[]>(`${this.baseUrl}/updateshelterapprovalupdate`, {
+			headers,
+			params
+		});
+	}
 
 	signup(data: any) {
 		const signupUrl: string = `${this.baseUrl}/signupshelter`;

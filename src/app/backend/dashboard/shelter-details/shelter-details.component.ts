@@ -14,9 +14,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class ShelterDetailsComponent implements OnInit {
   currentShelter: Shelter;
   editing: boolean = false;
-
-  // Placeholder for real data that we would
-  // get from the api
   initialFormValues: object;
   isSubmitting: boolean = false;
   shelterForm: FormGroup;
@@ -32,6 +29,7 @@ export class ShelterDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.createShelterForm();
+
   }
 
   toggleEditing() {

@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
   private setLoginCredentials() {
     this.activatedRoute.queryParamMap
       .subscribe((values) => {
+        // Look into using object destructing to reduce lines of code
         const creds = values['params'];
         if (creds['username'] && creds['password']) {
           this.loginForm.setValue({ username: creds['username'], password: creds['password'] });

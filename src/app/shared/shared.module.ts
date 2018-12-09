@@ -5,16 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '@appShared/material.module';
+import { AdminHeaderComponent } from '@appBackend/admin-header/admin-header.component';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
 import { LoadingIconComponent } from '@appShared/loading-icon/loading-icon.component';
 import { FormatPhonePipe } from './phone.pipe';
 
 @NgModule({
   declarations: [
     FormatPhonePipe,
+    AdminHeaderComponent,
     NavbarComponent,
-    FooterComponent,
     LoadingIconComponent
   ],
   imports: [
@@ -33,7 +33,7 @@ import { FormatPhonePipe } from './phone.pipe';
     RouterModule,
     MaterialModule,
     NavbarComponent,
-    FooterComponent,
+    AdminHeaderComponent,
     LoadingIconComponent,
     FormatPhonePipe
   ]

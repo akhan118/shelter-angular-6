@@ -7,13 +7,13 @@ import { AuthGuard } from '@appBackend/auth/auth.guard';
 import { BackendComponent } from '@appBackend/backend.component';
 
 @NgModule({
-	imports: [
+  imports: [
     SharedModule,
     BackendRoutingModule
   ],
-	declarations: [
+  declarations: [
     BackendComponent
   ],
-	providers: [AuthGuard]
-	})
-export class BackendModule {}
+  providers: [AuthGuard]
+})
+export class BackendModule { }

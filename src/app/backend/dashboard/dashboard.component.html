@@ -2,7 +2,7 @@
   <!-- Main Content -->
   <mat-drawer-content class="dashboard__content">
     <div class="banner-message" [class.show]="showBanner">
-      <p class="color-bluejean font-size-sm">
+      <p class="font-size-md">
         Before this shelter can be displayed to users all of
         the shelter details must be filled out.
       </p>
@@ -11,6 +11,8 @@
     <sa-admin-header></sa-admin-header>
 
     <!-- Dynamic Content -->
-    <main class="dashboard__main"><router-outlet></router-outlet></main>
+    <main class="dashboard__main">
+      <router-outlet></router-outlet>
+    </main>
   </mat-drawer-content>
 </mat-drawer-container>

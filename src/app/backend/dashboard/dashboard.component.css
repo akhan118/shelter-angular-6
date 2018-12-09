@@ -3,13 +3,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  padding: 0px 50px;
+  overflow: hidden;
   background-color: #ff8000;
   transition: height 0.4s ease-in;
 }
 
 .banner-message.show {
   height: 75px;
+}
+
+.banner-message p {
+  color: #fff;
 }
 
 .dashboard {
