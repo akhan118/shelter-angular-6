@@ -29,7 +29,6 @@ export class ShelterDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.createShelterForm();
-
   }
 
   toggleEditing() {

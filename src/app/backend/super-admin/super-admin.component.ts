@@ -16,42 +16,6 @@ export class SuperAdminComponent implements OnInit {
   shelters: Shelter[] = [];
   submitting: boolean = false;
   subscription: Subscription;
-  fakeShelters: Shelter[] = [
-    {
-      "shelter_id": "26",
-      "shelter_name": "shelter600",
-      "shelter_address": "",
-      "shelter_address_city": "",
-      "shelter_address_state": "",
-      "shelter_address_zip": "",
-      "shelter_county": "",
-      "shelter_phone": "0",
-      "shelter_email": "shelter600",
-      "shelter_EIN": "0",
-      "shelter_long": "0",
-      "shelter_lat": "0",
-      "username": "shelter6000",
-      "shelter_approved": "0",
-      "userId": "0"
-    },
-    {
-      "shelter_id": "27",
-      "shelter_name": "Malcolm's ",
-      "shelter_address": "",
-      "shelter_address_city": "",
-      "shelter_address_state": "",
-      "shelter_address_zip": "",
-      "shelter_county": "",
-      "shelter_phone": "0",
-      "shelter_email": "email@emai",
-      "shelter_EIN": "0",
-      "shelter_long": "0",
-      "shelter_lat": "0",
-      "username": "user",
-      "shelter_approved": "1",
-      "userId": "0"
-    }
-  ];
 
   constructor(private shelterService: ShelterService) { }
 
@@ -64,7 +28,7 @@ export class SuperAdminComponent implements OnInit {
     this.subscription = this.shelterService.getSheltersWithStatus().subscribe(
       sheltersResponse => {
         this.isLoading = false;
-        this.shelters = this.fakeShelters
+        this.shelters = sheltersResponse[0]
       }, (error: HttpErrorResponse) => {
         this.isLoading = false;
         this.errorMsg = 'Error getting shelters. Reload the page and try again.';
